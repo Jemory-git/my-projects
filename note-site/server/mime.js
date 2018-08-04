@@ -18,7 +18,7 @@ var mimeType = {
     "eot": "application/vnd.ms-fontobject",
     "woff": "application/x-font-woff",
     "woff2": "application/x-font-woff",
-    "json": "application/json "
+    "json": "application/json"
 }, mime;
 module.exports = function (filepath) {
     var extendName = filepath.split(".").pop().toLowerCase();

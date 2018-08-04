@@ -9,7 +9,7 @@ var Socket = require('net').Socket;
 var root = process.cwd();//从项目根目录打开服务器
 
 var setResourceUrl = function (requrl) {
-    var resourcerurl = path.join(root, 'photo-front', requrl);
+    var resourcerurl = path.join(root, 'front', requrl);
     if (requrl === '/') {
         resourcerurl = path.join(resourcerurl, 'index.html');
         return resourcerurl;
@@ -44,7 +44,7 @@ var httpserver = http.createServer(function (req, res) {
      var requ = req.url;//请求地址开头如果多于一个斜杠‘/’，url就会报错。先对url进行处理
 	//if (requ[1] === '/') {
         //res.writeHead(404, { 'content-type': "text/plain" });
-        //res.end("The url is wrong!");
+        //res.end("The url is wrong1!");
         //return;
     //};
 	while(requ[1] === '/'){
@@ -61,15 +61,15 @@ var httpserver = http.createServer(function (req, res) {
 
     if (argArrLen > 2) {
         res.writeHead(404, { 'content-type': "text/plain" });
-        res.end("The url is wrong!");
+        res.end("The url is wrong2!");
         return;
     } else if ((argArrLen === 1 || argArrLen === 2) && (argumentsArr[0] !== 'v' && argumentsArr[0] !== 'type')){
         res.writeHead(404, { 'content-type': "text/plain" });
-        res.end("The url is wrong!");
+        res.end("The url is wrong3!");
         return;
     } else if (argArrLen === 0 && resourceurl.split('.').pop() === 'php'){
         res.writeHead(404, { 'content-type': "text/plain" });
-        res.end("The url is wrong!");
+        res.end("The url is wrong4!");
         return;
     }
     if (reqMethod == "GET" && urlArguments.type !== 'delete') {
@@ -79,7 +79,7 @@ var httpserver = http.createServer(function (req, res) {
         fs.stat(resourceurl, function (err, stats) {
             if (err) {
                 res.writeHead(404, { 'content-type': "text/plain" });
-                res.end("The url is wrong!");
+                res.end("The url is wrong5!");
             } else if (stats.isFile()) {
                 res.writeHead(200, {
                     'content-type': mimeType
@@ -87,11 +87,11 @@ var httpserver = http.createServer(function (req, res) {
                 fs.createReadStream('' + resourceurl).pipe(res);//pipe到响应体后，就不能执行 .end() 方法了, 而且如果加载超文本此步之前不能用write
             } else {
                 res.writeHead(404, { 'content-type': "text/plain" });
-                res.end("The url is wrong!");
+                res.end("The url is wrong6!");
             }
         });
     } else if (reqMethod == "GET" && urlArguments.type === 'delete') {//处理删除请求
-        var noteUrl = root + '/photo-server/note.json',
+        var noteUrl = root + '/server/note.json',
             position = urlArguments.position,
             storagedNote,
             lastOne,
@@ -151,7 +151,7 @@ var httpserver = http.createServer(function (req, res) {
 
     } else if (reqMethod == "POST" && urlArguments.type === 'pull') {//拉取笔记数据
         // var socket = new Socket();
-        var noteUrl = root + '/photo-server/note.json';
+        var noteUrl = root + '/server/note.json';
         var reqBody = "";
         req.on('data', function (chunk) {//数据过来的时候，拼接数据
             reqBody += chunk;
@@ -172,7 +172,7 @@ var httpserver = http.createServer(function (req, res) {
             });
         });
     } else if (reqMethod == "POST" && urlArguments.type === 'save') {//修改笔记内容
-        var noteUrl = root + '/photo-server/note.json',
+        var noteUrl = root + '/server/note.json',
             storagedNote,
             reqBody = "";
         req.on('data', function (chunk) {//数据过来的时候，拼接数据
@@ -222,7 +222,7 @@ var httpserver = http.createServer(function (req, res) {
             });//readfile结束
         });//onend事件结束
     } else if (reqMethod == "POST" && urlArguments.type === 'newnote') {//保存新建笔记
-        var noteUrl = root + '/photo-server/note.json',
+        var noteUrl = root + '/server/note.json',
             storagedNote,
             reqBody = "";
         req.on('data', function (chunk) {//数据过来的时候，拼接数据
