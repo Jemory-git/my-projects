@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(58, 8, 45);
+}
+div.background-container{
+    background-color: #33062c;
+    background-image: url(../img/page-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 914px;
+    background-position: top center;
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 750px;
+}
+header{
+    z-index: 10;
+    min-height: 93px;
+}
+main{
+    z-index: 1;
+}
+a:hover{
+    color: #C846CC !important;
+}

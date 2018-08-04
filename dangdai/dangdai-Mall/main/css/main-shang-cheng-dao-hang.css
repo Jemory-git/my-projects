@@ -1,0 +1,51 @@
+div.div-main-fu-wu-dao-hang{
+    width: 900px;
+    margin: 0 auto;
+    color: white;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+div.div-main-fu-wu-dao-hang h4{
+    padding: 10px 0;
+}
+div.div-main-fu-wu-dao-hang h4,
+div.div-main-fu-wu-dao-hang h5{
+    font-weight: 300;
+    font-size: 18px;
+}
+
+/*main - section */
+section.center-content{
+    color: white;
+    font-size: 14px;
+    font-weight: 200;
+}
+section.center-content h4.whln-tittle{
+    width: 660px;
+    margin: 30px auto 0;
+    display: flex;
+}
+section.center-content h4.whln-tittle span{
+    left: 35px;
+    top: 8px;
+    flex-grow: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: #68145E;
+    border-top: solid 5px #411D1D;
+}
+section.center-content h4.whln-tittle span:hover{
+    background-color: #79216E;
+    border-top: solid 5px #5E2929;
+}
+.active{
+    background-color: #79216E !important;
+}
+
+.nearest-news{
+    width: 620px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 0 20px #580d4f;
+}

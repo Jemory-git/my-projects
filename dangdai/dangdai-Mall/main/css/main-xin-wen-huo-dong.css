@@ -1,0 +1,144 @@
+main{
+    width: 900px;
+    margin: 0 auto;
+    
+}
+.htittle{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.htittle h4,
+.htittle h5{
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+}
+div.div-main-gydd{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*main - section */
+section.center-content{
+    color: white;
+    font-size: 14px;
+    font-weight: 200;
+    width: 625px;
+}
+section.center-content h4.whln-tittle{
+    background-image: url(../../pages/guan-yu-dang-dai/img/content-tab-bg.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    position: relative;
+}
+section.center-content h4.whln-tittle span{
+    position: absolute;
+    left: 35px;
+    top: 8px;
+}
+section.center-content p{
+    padding: 5px 20px;
+    letter-spacing: 2px;
+    line-height: 25px;
+}
+
+/*轮播图*/
+div.lunbotu-container{
+    position: relative;
+    margin-top: 30px;
+}
+.swiper-container {
+    width: 486px;
+    height: 250px;
+    margin: 0px auto;
+    position: relative;
+    box-shadow: 0 -15px 0 15px rgb(68, 10, 62);
+}
+.swiper-slide {
+    position: absolute;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.show-opacity-item{
+    opacity: 1;
+}
+.text-info{
+    height: 30px;
+    width: 516px;
+    margin: 0px auto;
+    background-color: rgb(68, 10, 62);
+    text-align: center;
+    padding-top: 10px;
+}
+.new-position{
+    width: 10px;
+    height: 16px;
+    position: absolute;
+    top: 92%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.new-position-pre{
+     background-image: url(../../pages/xin-wen-huo-dong/img/ioc-pre.jpg);
+    left: 100px;       
+}
+.new-position-next{
+    background-image: url(../../pages/xin-wen-huo-dong/img/ioc-next.jpg);
+    right: 100px;       
+    
+}
+
+/*新闻列表*/
+.nearest-news{
+    padding: 0 50px;
+    display: flex;
+}
+.news-list{
+    padding: 0 50px;
+}
+.news-list>p{
+    display: flex;
+    justify-content: space-between;
+}
+.news-list>p span.news-item::before{
+    display: inline-block;
+    height: 30px;
+    width: 20px;
+    content: url(../../pages/xin-wen-huo-dong/img/ioc-list.png);
+    overflow: hidden;
+    vertical-align: middle;
+}
+.news-list>p span.news-item{
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.news-list>p span.news-item + span.date{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.pageTurn-btns{
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+.pageTurn-btns span.turn-page-btn{
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+.pageTurn-btns span.turn-page-btn:hover{
+    background-color: #540748;
+}
+.current-page-identify{
+    background-color: #540748;
+}

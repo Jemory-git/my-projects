@@ -1,0 +1,47 @@
+/*本组件reset*/
+aside.aside-left ul,p{
+    margin: 0;
+    padding: 0;
+}
+aside.aside-left  li{
+    list-style: none;
+}
+aside.aside-left  a{
+    text-decoration: none;
+    color: inherit;
+}
+/*本组件reset 结束*/
+
+
+aside.aside-left{
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+aside.aside-left ul li {
+    background-color: #710351;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    transition: all 0.3s;
+}
+aside.aside-left ul li:last-of-type{
+    background-color: transparent;
+    margin-top: 50px;
+}
+aside.aside-left ul li:hover{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+aside.aside-left ul li a{
+    display: block;
+    height: 100%;
+    color: #E6DFDF;
+    font-size: 14px;
+    position: relative;
+    text-shadow: -2px 2px 2px #000;
+}
+aside.aside-left ul li a span{
+    position: absolute;
+    right: 0;
+}

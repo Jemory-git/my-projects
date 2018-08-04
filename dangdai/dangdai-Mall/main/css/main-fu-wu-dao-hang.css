@@ -1,0 +1,49 @@
+div.div-main-fu-wu-dao-hang{
+    width: 900px;
+    margin: 0 auto;
+    color: white;
+    height: 500px;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+div.div-main-fu-wu-dao-hang h4{
+    padding: 10px 0;
+}
+div.div-main-fu-wu-dao-hang h4,
+div.div-main-fu-wu-dao-hang h5{
+    font-weight: 300;
+    font-size: 18px;
+}
+div.div-main-fu-wu-dao-hang div.service-item{
+    margin-top: 50px;
+    background-image: url(../../index/img//server-animate-bg.jpg);
+}
+div.div-main-fu-wu-dao-hang div.service-item div.service-item-row{
+    height: 290px;
+    width: 98%;
+    margin:0 auto;
+    position: relative;
+}
+div.div-main-fu-wu-dao-hang div.service-item div.service-item-row div.service-item-box{
+    height: 55px;
+    width: 85px;
+    position: absolute;
+    background-image: url(../../index/img/server-box-bg.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.box-changeOpacity-animation{
+    animation: changeOpacity 5s linear infinite alternate; 
+}
+.text-box-background{
+    background-position: right !important;
+}
+@keyframes changeOpacity{
+    0%{opacity:0.1;}
+    100%{opacity: 0.9;}
+}

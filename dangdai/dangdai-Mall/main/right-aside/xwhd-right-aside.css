@@ -1,0 +1,14 @@
+a{
+    color: inherit;
+}
+
+aside.aside-right-shop{
+    width: 152px;
+}
+aside.aside-right-shop div.dangdai-news{
+    padding-top: 117px;
+}
+aside.aside-right-shop div.dangdai-news img{
+    border-radius: 20px;
+    opacity: 0.8;
+}

@@ -1,0 +1,22 @@
+/*本组件reset*/
+aside.aside-right ul,p{
+    margin: 0;
+    padding: 0;
+}
+aside.aside-right  li{
+    list-style: none;
+}
+aside.aside-right  a{
+    text-decoration: none;
+    color: inherit;
+}
+/*本组件reset 结束*/
+
+
+aside.aside-right{
+    padding-top: 100px;
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

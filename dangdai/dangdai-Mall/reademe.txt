@@ -1,0 +1,5 @@
+1.网站所有页面分三部分：header  main  footer
+2.header 和 footer的html、css、js在compnents文件夹内，是所有页面共用的
+3.main部分的内容各页面不同，css、js全部在main文件夹内
+4.各页面单独的html、css、js在pages文件夹内，首页的在index文件夹内
+5.index文件夹内还存放着一些共用的资源文件

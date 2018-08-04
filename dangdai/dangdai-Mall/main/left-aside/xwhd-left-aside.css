@@ -1,0 +1,58 @@
+/*本组件reset*/
+aside.aside-left ul,p{
+    margin: 0;
+    padding: 0;
+}
+aside.aside-left  li{
+    list-style: none;
+}
+aside.aside-left  a{
+    text-decoration: none;
+    color: inherit;
+}
+/*本组件reset 结束*/
+
+
+aside.aside-left{
+    min-height: 530px;
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+aside.aside-left ul{
+    background-color: rgb(70, 10, 61);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+aside.aside-left ul li {
+    border-radius: 5px;
+    background-color: rgb(87, 8, 74);
+    margin-bottom: 3px;
+    padding: 2px 7px;
+    box-shadow: 0 0 20px 2px #2E2C2C;
+}
+aside.aside-left ul li a{
+    text-align: center;
+    display: block;
+    height: 100%;
+    color: #E6DFDF;
+    font-size: 14px;
+    position: relative;
+    text-shadow: -2px 2px 2px #000;
+}
+
+.service-call{
+    margin: 20px auto;
+}
+.erweima{
+    margin-bottom: 20px;
+}
+.erweima p{
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}

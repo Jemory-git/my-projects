@@ -1,0 +1,131 @@
+main{
+    width: 900px;
+    margin: 0 auto;
+    
+}
+.htittle{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.htittle h4,
+.htittle h5{
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+}
+div.div-main-gydd{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*main - section */
+section.center-content{
+    color: white;
+    font-size: 14px;
+    font-weight: 200;
+    width: 625px;
+}
+section.center-content h4.whln-tittle{
+    background-image: url(../../pages/guan-yu-dang-dai/img/content-tab-bg.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    position: relative;
+}
+section.center-content h4.whln-tittle span{
+    position: absolute;
+    left: 35px;
+    top: 8px;
+}
+section.center-content p{
+    padding: 5px 20px;
+    letter-spacing: 2px;
+    line-height: 25px;
+}
+
+
+/*人才 招聘*/
+
+/*岗位列表*/
+.job-post .job-list-tittle{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(55, 10, 43);
+    padding: 10px;
+}
+.job-post .job-list-tittle>div{
+    width: 40%;
+}
+.job-post .post-list{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.job-post .post-list>div{
+    width: 20%;
+}
+.job-post .post-list>div>a{
+    display: block;
+    padding: 15px 0;
+}
+
+/*在线申请按钮*/
+.p-apply{
+    text-align: center;
+    margin-top: 20px;
+}
+.apply-for-this-job{
+    color: #cc9ac3;
+    border: 1px solid #98649e;
+    border-radius: 5px;
+    padding: 3px 10px;
+    background-color:  #502e65;
+}
+
+/*申请表*/
+h2.apply-table-header{
+    text-align: center;
+}
+div.apply-table{
+    border: 1px solid #98649e;
+    width: 100%;
+    margin: 20px auto;
+}
+div.apply-table div.apply-table-row{
+    text-align: center;
+    display: table-row;
+}
+div.apply-table div.apply-table-row:nth-of-type(1),
+div.apply-table div.apply-table-row:nth-of-type(2),
+div.apply-table div.apply-table-row:nth-of-type(6),
+div.apply-table div.apply-table-row:nth-of-type(8),
+div.apply-table div.apply-table-row:nth-of-type(11){
+    display: flex;
+    justify-content: center;
+}
+div.apply-table div.apply-table-col{
+    padding: 5px;
+    border: 1px solid #98649e;
+    box-sizing: border-box;
+    display: table-cell;
+    flex-grow: 1;
+    vertical-align: middle;
+    position: relative;
+}
+div.apply-table div.apply-table-col span.hard-to-center{
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+}
+input{
+    width: 90%;
+    height: 100%;
+    border: none;
+}
+textarea{
+    max-width: 543px;
+    min-width: 542px;
+}

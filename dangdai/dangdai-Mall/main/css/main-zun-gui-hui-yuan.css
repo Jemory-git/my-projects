@@ -1,0 +1,44 @@
+div.div-main-fu-wu-dao-hang{
+    width: 900px;
+    margin: 0 auto;
+    color: white;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+div.div-main-fu-wu-dao-hang h4{
+    padding: 10px 0;
+}
+div.div-main-fu-wu-dao-hang h4,
+div.div-main-fu-wu-dao-hang h5{
+    font-weight: 300;
+    font-size: 18px;
+}
+
+/*main - section */
+section.center-content{
+    color: white;
+    font-size: 14px;
+    font-weight: 200;
+}
+section.center-content h4.whln-tittle{
+    width: 660px;
+    margin: 30px auto 0;
+    background-image: url(../../pages/guan-yu-dang-dai/img/nav_02.jpg);
+    background-repeat: no-repeat;
+    height: 26px;
+    position: relative;
+}
+section.center-content h4.whln-tittle span{
+    position: absolute;
+    font-size: 12px;
+    left: 35px;
+    top: 8px;
+}
+.nearest-news{
+    width: 620px;
+    padding: 40px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 0 20px #580d4f;
+}

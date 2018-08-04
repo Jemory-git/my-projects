@@ -1,0 +1,85 @@
+/*本组件reset*/
+.nav-header-compnent ul,p{
+    margin: 0;
+    padding: 0;
+}
+.nav-header-compnent li{
+    list-style: none;
+}
+.nav-header-compnent a{
+    text-decoration: none;
+    color: inherit;
+}
+/*本组件reset 结束*/
+
+.nav-header-compnent{
+    background-image: url(../../../index/img/nav-bg.png);
+    background-repeat: no-repeat;
+    width: 919px;
+    height: 93px;
+    margin: 0 auto;
+}
+.nav-header-compnent ul{
+    display: flex;
+    justify-content: space-around;
+    z-index: 11;
+}
+.nav-header-compnent ul li.text-li{/*nav 下拉列表 开始*/
+    margin-top: 40px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    z-index: 12;
+}
+.nav-header-compnent ul li.text-li:hover{
+    overflow: visible;
+    height: auto;
+}
+.nav-header-compnent ul li.text-li a{
+    padding: 2px 20px;
+    border: solid 1px transparent;
+    border-radius: 3px;
+    color: #dedada;
+    transition: all 0.3s;
+}
+.nav-header-compnent ul li.text-li a:first-of-type{
+    font-weight: bold;
+}
+.nav-header-compnent ul li.text-li a:hover{
+    background-color: rgb(51, 1, 55);
+    border: solid 1px rgb(119, 74, 108);
+    color: #C846CC;
+}
+.nav-header-compnent ul li.text-li a + a{/*nav 下拉列表 结束*/
+    font-size: 14px;
+    background-color: rgb(67, 2, 65);
+    text-align:center;
+    margin-top: 2px;
+    box-shadow: 0 2px 2px rgb(119, 74, 108);
+}
+
+.nav-header-compnent ul li.nav-logo{/*nav logo 开始*/
+    position: relative;
+}
+.nav-header-compnent ul li.nav-logo p.change-lang{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 66px;
+    line-height: normal;
+    margin: 0 auto;
+}
+.nav-header-compnent ul li.nav-logo p.change-lang a.change-lang-a{
+    box-shadow: 0 0 1px 1px rgb(119, 74, 108);
+    color: rgb(119, 74, 108);
+    background-color: #000;
+    padding: 0px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.nav-header-compnent ul li.nav-logo p.change-lang a.change-lang-a + a.change-lang-a{/*nav logo 结束*/
+    margin-left: 5px;
+}
+

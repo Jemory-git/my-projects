@@ -1,0 +1,37 @@
+/*本组件reset*/
+.div-footer-compnent ul,p{
+    margin: 0;
+    padding: 0;
+}
+.div-footer-compnent li{
+    list-style: none;
+}
+.div-footer-compnent a{
+    text-decoration: none;
+    color: inherit;
+}
+/*本组件reset 结束*/
+
+.div-footer-compnent{
+    width: 900px;
+    margin: 0 auto;
+    color: #EBE8E8;
+}
+.div-footer-compnent ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.div-footer-compnent ul li{
+    margin-right: 10px;
+    font-size: 14px;
+}
+.div-footer-compnent ul li + li:before{
+    content: "|";
+    margin-right: 10px;
+}
+.div-footer-compnent p{
+    text-align: center;
+    font-size: 12px;
+    margin: 10px auto 10px;
+}
