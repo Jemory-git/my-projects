@@ -1,4 +1,4 @@
-var http = require('http');
+﻿var http = require('http');
 var fs = require('fs');
 var mime = require('./mime');
 var path = require('path');
@@ -272,7 +272,7 @@ var httpserver = http.createServer(function (req, res) {
     }//else结束
 
 });//创建服务器结束
-httpserver.listen('8080', function () {
+httpserver.listen('80', function () {
     var host = httpserver.address();
     console.log(httpserver.listening);
     console.log(host);

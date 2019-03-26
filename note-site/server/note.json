@@ -443,7 +443,7 @@
         },
         {
             "filename": "跨域请求",
-            "detail": "<p>1、浏览器默认不允许ajax请求跨域的内容；</p><p>2、server端可通过设置响应头，来允许指定的url的跨域请求；</p><p>3、三个html标签可以跨域请求内容，img、link、script；</p><p>4、用script标签去请求一个跨域的js内容被称作JSONP，这个js内容会携带想要得到的数据信息，把这个数据信息赋值给window下的变量，就能使用了。Jsonp的跨域请求方式不用在server设置允许跨域的响应头。</p>",
+            "detail": "<p>1、浏览器默认不允许ajax请求跨域的内容；</p><p>2、server端可通过设置响应头，来允许指定的url的跨域请求；</p><p>3、三个html标签可以跨域请求内容，img、link、script；</p><p>4、用script标签去请求一个跨域的js内容被称作JSONP，这个js内容会携带想要得到的数据信息，把这个数据信息赋值给window下的变量，就能使用了。Jsonp的跨域请求方式不用在server设置允许跨域的响应头。</p><p>5<span style=\"font-size: 1.4rem; text-indent: 2em;\">、使用webpack的dev-server插件，配置proxy-table，来修改请求为同源，从而实现“假的同域请求”</span></p>",
             "ctime": "14:53",
             "cdate": "2018/04/01",
             "fileId": "f1522565625788",
@@ -452,8 +452,8 @@
             "position": [
                 "javascript[22]"
             ],
-            "mtime": "15:42",
-            "mdate": "2018/04/01"
+            "mtime": "11:55",
+            "mdate": "2019/03/05"
         },
         {
             "filename": "前端存储",
@@ -797,6 +797,18 @@
             "position": [
                 "javascript[49]"
             ]
+        },
+        {
+            "filename": "requestAnimationFrame",
+            "detail": "<p>http://www.webhek.com/post/requestanimationframe.html<br></p><p><br></p><p>该函数的兼容性处理：</p><p>(function() {</p><p>&nbsp; &nbsp; var lastTime = 0;</p><p>&nbsp; &nbsp; var vendors = ['webkit', 'moz'];</p><p>&nbsp; &nbsp; for(var x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];</p><p>&nbsp; &nbsp; &nbsp; &nbsp; window.cancelAnimationFrame =</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];</p><p>&nbsp; &nbsp; }</p><p><br></p><p>&nbsp; &nbsp; if (!window.requestAnimationFrame)</p><p>&nbsp; &nbsp; &nbsp; &nbsp; window.requestAnimationFrame = function(callback, element) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var currTime = new Date().getTime();</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var timeToCall = Math.max(0, 16 - (currTime - lastTime));</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var id = window.setTimeout(function() { callback(currTime + timeToCall); },</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; timeToCall);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lastTime = currTime + timeToCall;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return id;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; };</p><p><br></p><p>&nbsp; &nbsp; if (!window.cancelAnimationFrame)</p><p>&nbsp; &nbsp; &nbsp; &nbsp; window.cancelAnimationFrame = function(id) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearTimeout(id);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; };</p><p>}());</p>",
+            "ctime": "01:46",
+            "cdate": "2019/02/25",
+            "fileId": "f1551030376063",
+            "type": "file",
+            "fileFather": "javascript",
+            "position": [
+                "javascript[50]"
+            ]
         }
     ],
     "html": [
@@ -1093,6 +1105,18 @@
             "position": [
                 "html[21]"
             ]
+        },
+        {
+            "filename": "vue picker 组件",
+            "detail": "<p>https://www.npmjs.com/package/better-picker<br></p>",
+            "ctime": "15:40",
+            "cdate": "2019/03/01",
+            "fileId": "f1551426039378",
+            "type": "file",
+            "fileFather": "html",
+            "position": [
+                "html[22]"
+            ]
         }
     ],
     "css": [
@@ -1295,6 +1319,18 @@
             ],
             "mtime": "15:31",
             "mdate": "2019/01/22"
+        },
+        {
+            "filename": "less编译calc出错",
+            "detail": "<p>width: calc(100% - 30px) 写成这种： width : calc(~\"100% - 30px\")<br></p><p>定义变量可能的报错：</p><p>div {</p><p>　　@diff : 30px;</p><p>　　width : calc(~\"100% - \" + @diff);</p><p>　　}</p><p>尝试写成如下：</p><p>　　div {</p><p>　　@diff : 30px;</p><p>　　width : calc(~\"100% - \" @diff);</p><p>　　}</p><p>或者这样：</p><p>　　div {</p><p>　　@diff : 30px;</p><p>　　width : calc(~\"100% - @{diff}\");</p><p>　　}</p>",
+            "ctime": "09:33",
+            "cdate": "2019/03/13",
+            "fileId": "f1552440814342",
+            "type": "file",
+            "fileFather": "css",
+            "position": [
+                "css[16]"
+            ]
         }
     ],
     "jquery": [
@@ -1403,6 +1439,30 @@
             "fileFather": "移动端兼容性",
             "position": [
                 "移动端兼容性[6]"
+            ]
+        },
+        {
+            "filename": "cookie的获取问题",
+            "detail": "<p>开发兴享惠商户后台期间，出现了一个问题，就是ios发出的请求总是返回登陆失效。</p><p>跟后台设置的cookie，服务器要用cookie来判断session是否过期。</p><p>可能是ios限制http的功能，也可能是后台设置cookie的httpOnly改为false，</p><p>所以可以尝试更换https；或者要后台将httpOnly设置成false；</p><p><br></p><p>另外一种前端解决方案是，登陆时读取cookie存起来，然后在设置全局的请求中设置cookie，但是有时候前端会读不到cookie，</p><p>原因可能是：后台设置了<span style=\"font-size: 1.4rem; text-indent: 2em;\">HttpOnly</span><span style=\"font-size: 1.4rem; text-indent: 2em;\">&nbsp;；</span></p><p><span style=\"font-size: 1.4rem; text-indent: 2em;\"><br></span></p><p>前端cookie：</p><p>设置：document.cookie = 'company=eoitek;max-age=10000;domain=eoitek.com;path=/;secure'<br></p><p>读取：document.cookie</p><p>其中max-age是cookie的过期时间,是一个相对时间，值的单位是秒，是相对于cookie创建后多少秒才过期。与max-age相似的配置属性是expires，值为日期对象的toUTCString()格式，即Thu, 21 Sep 2018 06:10:38 GMT，是指cookie过期的绝对时间。如果max-age和expires都存在，则max-age的优先级更高。domain是我们设置cookie存放的域，如果没有设置则为当前主机的域。path是指cookie存储的目录，默认为当前文件的存储目录。secure，加入此配置项，则指定该cookie只能通过https协议进行传输。<br></p><p><br></p><p>后端cookie比前端cookie多两个配置项：</p><p>httpOnly：设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 经由 Document.cookie 属性、XMLHttpRequest 和 Request APIs 进行访问，以防范跨站脚本攻击（XSS）；</p><p>SameSite=Strict</p><p>SameSite=Lax&nbsp;</p><p>允许服务器设定一则 cookie 不随着跨域请求一起发送，这样可以在一定程度上防范跨站请求伪造攻击（CSRF）。</p><p><br></p><p>更多详细信息：https://segmentfault.com/a/1190000011295587</p><p>前端设置和读取cookie的方法封装案例：https://www.jianshu.com/p/b497ff6100ec</p>",
+            "ctime": "19:35",
+            "cdate": "2019/03/07",
+            "fileId": "f1551958508546",
+            "type": "file",
+            "fileFather": "移动端兼容性",
+            "position": [
+                "移动端兼容性[7]"
+            ]
+        },
+        {
+            "filename": "ios跳转页面内容透明",
+            "detail": "<p>可能是ios在处理body、html标签的高度的时候出了问题</p><p>https://blog.csdn.net/baozisss/article/details/81118386<br></p>",
+            "ctime": "17:02",
+            "cdate": "2019/03/13",
+            "fileId": "f1552467734734",
+            "type": "file",
+            "fileFather": "移动端兼容性",
+            "position": [
+                "移动端兼容性[8]"
             ]
         }
     ],
@@ -1646,7 +1706,7 @@
         },
         {
             "filename": "transition 套 keep-alive 套 router-view",
-            "detail": "<p><span style=\"font-size: 1.4rem; text-indent: 2em;\">&nbsp; &nbsp; &nbsp; &nbsp; &lt;transition :name=\"transitionName\"&gt;</span><br></p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;router-view v-if=\"!$route.meta.keepAlive\"&gt;&lt;/router-view&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/transition&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;transition :name=\"transitionName\"&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;keep-alive&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;router-view v-if=\"$route.meta.keepAlive\"&gt;&lt;/router-view&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/keep-alive&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/transition&gt;</p>",
+            "detail": "<p><span style=\"font-size: 1.4rem; text-indent: 2em;\">&nbsp; &nbsp; &nbsp; &nbsp; &lt;transition :name=\"transitionName\"&gt;</span><br></p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;router-view v-if=\"!$route.meta.keepAlive\"&gt;&lt;/router-view&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/transition&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;transition :name=\"transitionName\"&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;keep-alive&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;router-view v-if=\"$route.meta.keepAlive\"&gt;&lt;/router-view&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/keep-alive&gt;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/transition&gt;</p><p><br></p><p>另一种方式：<span style=\"font-size: 1.4rem; text-indent: 2em;\">keepalive的include和exclude属性：</span></p><p>1.vue-router 的版本必须是2.1+</p><p>2.设置了exclude的组件, 如果是同名组件切换, 一样会缓存, 这是因为组件复用</p><p>3.给组件设置name</p><p>4.include和exclude设置对应组件的name</p><p>详细信息：https://cn.vuejs.org/v2/api/#keep-alive</p>",
             "ctime": "14:40",
             "cdate": "2018/09/10",
             "fileId": "f1536561606901",
@@ -1654,7 +1714,9 @@
             "fileFather": "vue",
             "position": [
                 "vue[18]"
-            ]
+            ],
+            "mtime": "15:16",
+            "mdate": "2019/03/08"
         },
         {
             "filename": "vue项目自动px转rem方式",
@@ -1707,6 +1769,20 @@
             "position": [
                 "vue[22]"
             ]
+        },
+        {
+            "filename": "vue格式化配置",
+            "detail": "<p>https://vuejs.github.io/vetur/formatting.html<br></p><p><br></p><p>如：在setting.json中添加配置</p><p>\"vetur.format.defaultFormatter.js\": \"vscode-typescript\",</p>",
+            "ctime": "19:48",
+            "cdate": "2019/03/04",
+            "fileId": "f1551700087012",
+            "type": "file",
+            "fileFather": "vue",
+            "position": [
+                "vue[23]"
+            ],
+            "mtime": "19:49",
+            "mdate": "2019/03/04"
         }
     ],
     "gulp/webpack/Babel": [
@@ -1807,6 +1883,20 @@
             "position": [
                 "gulp/webpack/Babel[7]"
             ]
+        },
+        {
+            "filename": "vsCode 格式化不换行",
+            "detail": "<p>在setting.json中添加配置</p><p>\"vetur.format.defaultFormatter.js\": \"vscode-typescript\",<br></p>",
+            "ctime": "19:15",
+            "cdate": "2019/03/04",
+            "fileId": "f1551698107093",
+            "type": "file",
+            "fileFather": "gulp/webpack/Babel",
+            "position": [
+                "gulp/webpack/Babel[8]"
+            ],
+            "mtime": "19:48",
+            "mdate": "2019/03/04"
         }
     ],
     "小程序": [
