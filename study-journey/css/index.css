@@ -1,0 +1,317 @@
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: #2C8DFB;
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 2px;
+	background-color: #2C8DFB;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+	border-radius: 2px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+li{
+		text-align: left;
+}
+a{
+		text-decoration: none;
+		color: inherit;
+		font-size: inherit
+}
+img{
+		max-width: 100%;
+		height: auto;
+}
+
+/*swiper 开始*/
+html{
+		font-size: 10px;
+}
+a:hover{
+		color: #F7EE86;
+}
+html, body {
+	position: relative;
+	height: 100%;
+}
+body {
+	background: #eee;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.menu {
+	min-width: 100px;
+	width: 70%;
+	max-width: 320px;
+
+	background-color: #2C8DFB;
+	color: #fff;
+}
+.content {
+	width: 100%;
+}
+
+.menu-button {
+	position: absolute;
+	top: 0px; left: 0px;
+
+	padding: 10px;
+
+	cursor: pointer;
+
+	-webkit-transition: .3s;
+	transition: .3s;
+
+	background-color: #2C8DFB;
+
+	/*margin: 14px;
+	border-radius: 5px;*/
+}
+.menu-button .bar:nth-of-type(1) {
+	margin-top: 0px;
+}
+.menu-button .bar:nth-of-type(3) {
+	margin-bottom: 0px;
+}
+@media only screen and (max-width: 800px) {
+	.menu-button{
+		padding: 5px;
+	}
+	.bar{
+		height: 2px;
+		margin: 2px auto;
+	}
+}
+.bar {
+	position: relative;
+	display: block;
+
+	width: 50px;
+	height: 5px;
+
+	margin: 8px auto;
+	background-color: #fff;
+
+	border-radius: 10px;
+
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+@media only screen and (min-width: 1050px) {
+	.menu-button:hover .bar:nth-of-type(1) {
+		-webkit-transform: translateY(1.5px) rotate(-4.5deg);
+		-ms-transform: translateY(1.5px) rotate(-4.5deg);
+		transform: translateY(1.5px) rotate(-4.5deg);
+	}
+	.menu-button:hover .bar:nth-of-type(2) {
+		opacity: .9;
+	}
+	.menu-button:hover .bar:nth-of-type(3) {
+		-webkit-transform: translateY(-1.5px) rotate(4.5deg);
+		-ms-transform: translateY(-1.5px) rotate(4.5deg);
+		transform: translateY(-1.5px) rotate(4.5deg);
+	}
+}
+
+.cross .bar:nth-of-type(1) {
+	-webkit-transform: translateY(15px) rotate(-45deg);
+	-ms-transform: translateY(15px) rotate(-45deg);
+	transform: translateY(15px) rotate(-45deg);
+}
+.cross .bar:nth-of-type(2) {
+	opacity: 0;
+}
+.cross .bar:nth-of-type(3) {
+	-webkit-transform: translateY(-15px) rotate(45deg);
+	-ms-transform: translateY(-15px) rotate(45deg);
+	transform: translateY(-15px) rotate(45deg);
+}
+.cross:hover .bar:nth-of-type(1) {
+	-webkit-transform: translateY(13.5px) rotate(-40.5deg);
+	-ms-transform: translateY(13.5px) rotate(-40.5deg);
+	transform: translateY(13.5px) rotate(-40.5deg);
+}
+.cross:hover .bar:nth-of-type(2) {
+	opacity: .1;
+}
+.cross:hover .bar:nth-of-type(3) {
+	-webkit-transform: translateY(-13.5px) rotate(40.5deg);
+	-ms-transform: translateY(-13.5px) rotate(40.5deg);
+	transform: translateY(-13.5px) rotate(40.5deg);
+} 
+/*swiper 结束*/
+
+/*left menu 开始*/
+div.catalog-container{
+		width: 100%;
+		height: 100%;
+		
+		display: flex;
+		display: -webkit-flex;
+		flex-direction: column;
+		-webkit-flex-direction: column;
+		justify-content: center;
+		-webkit-justify-content: center;
+		
+		perspective: 800;
+		-webkit-perspective: 800;
+		-moz-perspective: 800;
+		perspective-origin: right top;
+		-webkit-perspective-origin: right top;
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+		position: relative;
+}
+div.catalog-container div.catalog-item{
+		width: 90%;
+		height: 45%;
+		margin: 0 auto 1rem;
+
+		color: white;
+		font-weight: bolder;
+		text-align: center;
+		transition: all 0.5s ease-out;
+		
+		-webkit-transition: all 0.5s ease-out;
+		position: relative;
+		perspective: 800;
+		-webkit-perspective: 800;
+		transform-style: preserve-3d;
+		-webkit-transform-style:preserve-3d ;
+		
+		/*backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;*/
+}
+div.catalog-container div.catalog-item div.overlap-child-item{
+		width: 100%;
+		height: 100%;
+		/*border-radius: 50%;*/
+		
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: radial-gradient(#acF, #2C8DFB);
+		
+		display: flex;
+		display: -webkit-flex;
+		flex-direction: column;
+		-webkit-flex-direction: column;
+		justify-content: center;
+		-webkit-justify-content: center;
+		align-content: center;
+		-webkit-align-items: center;
+		
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+}
+div.catalog-container div.catalog-item div.overlap-child-item-exercise{
+		overflow-y: auto;
+	}
+@media only screen and (max-height: 650px) {
+	div.catalog-container div.catalog-item div.overlap-child-item-exercise{
+		-webkit-justify-content: flex-start;
+	}
+}
+div.catalog-container div.catalog-item div.item-tittle{
+		font-size: 5rem;
+		cursor: pointer;
+		box-shadow: 0 3px #2C8DFB;
+}
+@media only screen and (max-width: 640px) {
+	div.catalog-container div.catalog-item div.item-tittle{
+		font-size: 3rem;
+	}
+	a{
+		text-decoration: underline;
+	}
+}
+div.catalog-container div.catalog-item div.item-content{
+		transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+		font-size: 1.4rem;
+}
+div.catalog-container div.catalog-item div.overlap-child-item ul{
+		width: 80%;
+		margin: 0 auto;
+}
+div.catalog-container div.catalog-item div.item-content li{
+		padding: 0.5rem 0 0.5rem 1rem;
+}
+.toggle-rotate{
+		transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+}
+/*租我么链接 提示 开始*/
+span#m-website {
+	display: block;
+	width: 20rem;
+	height: 20rem;
+	position: absolute;
+	left: 40%;
+	transform: translateX(-50%);
+	top: 0%;
+	display: none;
+}
+
+span#m-website span.prompt {
+	color: white;
+	font-size: 14px;
+	display: block;
+	text-align: center;
+	background-color: #518eea;
+}
+
+span#m-website span#shutdown {
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	right: 0;
+	top: -2px;
+	cursor: pointer;
+}
+
+span#m-website span#shutdown:hover {
+	color: black;
+}
+/*租我么链接 提示 结束*/
+/*left menu 结束*/
+
+
+/*iframe 开始*/
+iframe{
+		width: 100%;
+		height: 100%;
+		border: none;
+}
+/*iframe 结束*/

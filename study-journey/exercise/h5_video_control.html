@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="无知的少年"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<meta name="generator" content="HBuilder"/>
+		<title>自定义视频控制条</title>
+		
+		<style type="text/css">
+		/*清除默认样式_开始*/
+		*{
+				margin: 0px;
+				padding: 0px;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				box-sizing: border-box;
+		}
+		a{
+				text-decoration: none;
+				color: inherit;
+				font-size: inherit;
+		}
+		li{
+				list-style: none;
+		}
+		input{
+				outline: none;
+		}
+		/*清除默认样式结束*/
+		body>p{
+				border: solid gold 3px;
+				border-radius: 10px;
+				background-color: red;
+				color: white;
+				margin: 20px;
+				text-align: center;
+				font-size: 20px;
+		}
+		.container{
+				width: 880px;
+				height: 600px;
+				background-image: url(img/img_H5_video/bg.jpg);
+				border: dashed red 1px;
+				margin: 20px auto;
+				position: relative;
+		}	
+		video{
+				width: 878px;
+				height: 598px;
+		}
+		.container .controls_area{
+				width: 100%;
+				height: 50px;
+				background-color: rgb(249,249,249);
+				position: absolute;
+				top: 0;
+				transition: all 0.3s; 
+				transform-origin: 0 0% ;
+		}
+		/*播放  暂停  停止  -开始*/
+		.container .controls_area a{
+				position: absolute;
+				left: 15px;
+				top: 13px;
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				background-image: url(img/img_H5_video/sprite.png);
+		}
+		.container .controls_area a:nth-of-type(1){
+				background-position: 181px -8px;
+		}
+		.container .controls_area a:nth-of-type(2){
+				background-position: 331px -8px;
+				display: none;
+		}
+		.container .controls_area a:nth-of-type(3){
+				left: 50px;
+				top: 16px;
+				background-color: red;
+				background-image: none;
+				width: 13px;
+				height: 13px;
+		}
+		/*播放  暂停  停止  -结束*/
+		/*播放进度条--开始*/
+		.container .controls_area p#progress_bar{
+				width: 450px;
+				height: 10px;
+				background-color: rgb(112,109,109);
+				border-radius: 10px;
+				position: absolute;
+				left: 100px;
+				top: 20px;
+		}
+		.container .controls_area p#progress_bar span{
+				display: inline-block;
+				width: 0px;
+				height: 10px;
+				background-color: red;
+				border-radius: 10px;
+				position: relative;
+				top: -6px;
+		}
+		.container .controls_area p#progress_bar span i{
+				display: inline-block;
+				background-image: url(img/img_H5_video/handle.png);
+				width: 16px;
+			    height: 17px;
+			    position: absolute;
+			    right: -9px;
+			    top: -3px;
+		}
+		/*播放进度条--结束*/
+		
+		/*视频时间区域开始*/
+		.container .controls_area p#time{
+				width: 130px;
+				position: absolute;
+				right: 185px;
+				top: 15px;
+		}
+		.container .controls_area p#time span#full_time:before{
+				content: "/";
+				margin-right: 5px;
+		}
+		/*视频时间区域结束*/
+		
+		/*音量区域开始*/
+		.container .controls_area p#volume{
+				width: 100px;
+				height: 8px;
+				background-color: rgb(112,109,109);
+				border-radius: 10px;
+				position: absolute;
+				right: 50px;
+				top: 20px;
+				cursor: pointer;
+		}
+		.container .controls_area p#volume span#bugle{
+				display: inline-block;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				left: -25px;
+				top: -5px;
+				background-image: url(img/img_H5_video/sprite.png);
+				background-position: 103px -7px;
+		}
+		.container .controls_area p#volume span#volume_bar{
+				display: inline-block;
+				width: 0px;
+				height: 8px;
+				background-color: red;
+				border-radius: 10px;
+				position: relative;
+				top: -8px;
+		}
+		.container .controls_area p#volume span#volume_bar i{
+				display: inline-block;
+				background-image: url(img/img_H5_video/volume.png);
+				width: 12px;
+			    height: 10px;
+			    position: absolute;
+			    right: -10px;
+			    top: -1px;
+		}
+		/*音量区域结束*/
+		
+		/*全屏按钮开始*/
+		.container .controls_area #fullscreen{
+				width: 20px;
+				height: 20px;
+				background-image: url(img/img_H5_video/sprite.png);
+				background-position: 30px -8px;
+				position: absolute;
+				right: 20px;
+				top: 15px;
+				cursor: pointer;
+		}
+		/*全屏按钮结束*/
+		</style>
+		
+	</head>
+	<body>
+		<p >可能需要用chrome以外的浏览器播放</p>
+		<!--定义播放器-->
+		<div class="container">
+			<video id="video" controls="controls" preload="meta">
+				<source src="video/qqrj.ogg" type="video/ogg"></source>
+				<source src="video/qqrj.mp4" type="video/mp4"></source>
+				
+				当前浏览器不支持 video直接播放
+			</video>
+		<!--自定义控制器区域-->	
+			<div class="controls_area">
+				<a id="play" href="javascript:" onclick="videoplayer.play()"></a>
+				<a id="pause" href="javascript:void(0)" onclick="videoplayer.pause()"></a>
+				<a id="stop" href="javascript:void(0)" onclick="videoplayer.pause()"></a>
+				<p id="progress_bar">
+					<span id="progress_bar_change">
+						<i></i>
+					</span>
+				</p>
+				<p id="time">
+					<span id="current_time">00:00:00</span>
+					<span id="full_time">00:00:00</span>
+				</p>
+				<p id="volume">
+					<span id="bugle"></span>
+					<span id="volume_bar">
+						<i></i>
+					</span>
+				</p>
+				<div id="fullscreen"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//定义获取HTML元素的方法
+			var g = function (x){
+					if (x.charAt(0) == "#") {
+						return document.getElementById(x.replace(/#/,""));
+					} else if(x.charAt(0) == "." ){
+						return document.getElementsByClassName(x.replace(/\./,""));
+					}else{
+						return document.getElementsByTagName(x);
+					}
+				},
+				//定义时间转换的方法，将秒数转成 00:00:00的显示方式
+				change_time = function (time){
+					//计算时分秒
+					var min = Math.floor(time/60),
+						hour = Math.floor(min/60),
+						secend = parseInt(time)%60,
+					//将时分秒小于10的时候前面+个0
+						hour_00 = (hour<10)?"0"+hour:hour,
+						min_00 = (min<10)?"0"+min:min,
+						secend_00 = (secend<10)?"0"+secend:secend;
+					//输出转换后的总时间
+					return hour_00+":"+min_00+":"+secend_00;
+				},
+				videoplayer = g("#video"),//获取所有相关元素
+				time1 = g("#current_time"),
+				time2 = g("#full_time"), 
+				play1 = g("#play"),
+				pause1 = g("#pause"),
+				progress_bar_change = g("#progress_bar_change"),
+				progress_bar  = g("#progress_bar"),
+				container = g(".container"),
+				stop = g("#stop"),
+				controls_area = g(".controls_area")[0],
+				durationTime,
+				mouse_stay_time = 0;
+			//获取视频总时间
+			videoplayer.addEventListener("canplay",function(){
+				durationTime = videoplayer.duration;
+			});
+			
+			//定义快进快退功能
+				progress_bar.onmousedown = function (e) {
+					var x_click = e.clientX;
+					var x_bar = progress_bar.offsetLeft + container[0].offsetLeft;
+					//计算快进长度占总长度的比例
+					var ratio = (x_click-x_bar)/progress_bar.offsetWidth;
+					//改变进度条的进度，和快进后的时间
+					progress_bar_change.style.width = (x_click-x_bar)+"px";
+					videoplayer.currentTime = durationTime*ratio;
+				};
+				
+			//定义声音控制功能
+				volume.onmousedown = function (e) {
+						var x_click = e.clientX,
+							x_bar = volume.offsetLeft + container[0].offsetLeft,
+							//计算快进长度占总长度的比例
+							ratio = (x_click-x_bar)/volume.offsetWidth;
+						//改变进度条的进度，和快进后的时间
+						volume_bar.style.width = (x_click-x_bar)+"px";
+						videoplayer.volume = ratio;
+				};
+					
+					
+			//定义静音功能
+				g("#bugle").onclick = function () {
+					if (videoplayer.muted) {
+						videoplayer.muted = false;
+					} else{
+						videoplayer.muted = true;
+					}
+				};
+					
+			//定义全屏功能,兼容多个浏览器
+				g("#fullscreen").onclick = function (){
+					if(videoplayer.requestFullscreen) { 
+						videoplayer.requestFullscreen(); 
+					} else if(videoplayer.mozRequestFullScreen) { 
+						videoplayer.mozRequestFullScreen(); 
+					} else if(videoplayer.webkitRequestFullscreen) { 
+						videoplayer.webkitRequestFullscreen(); 
+					} else if(videoplayer.msRequestFullscreen) { 
+						videoplayer.msRequestFullscreen(); 
+					} 
+				};
+			
+			//定义控制条隐藏和出现事件
+				function hide() {
+					controls_area.style.opacity = 0;
+					controls_area.style.transform = "scaleY(0)"
+				};
+				function appear() {
+					controls_area.style.opacity = 1;
+					controls_area.style.transform = "scaleY(1)"
+				};
+			
+			
+			
+			//当视频canplay的时候输出总时间和当前时间
+			videoplayer.addEventListener("canplay",function(){
+				//使用change_time方法，输出总时间
+				time2.innerHTML = change_time(durationTime);
+				//执行输出当前时间
+				time1.innerHTML = change_time(videoplayer.currentTime);
+				//设置定时器，检查鼠标移动状态，如果鼠标静止则隐藏控制条
+				setInterval(function () {
+					if (mouse_stay_time == 0) {
+						hide();
+					}
+				},3000);
+			});
+			
+			
+			//定义播放和暂停事件发生时，播放暂停按钮的显示
+			videoplayer.addEventListener("play",function () {
+				play1.style.display = "none";
+				pause1.style.display = "block";
+			});
+			videoplayer.addEventListener("pause",function () {
+				play1.style.display = "block";
+				pause1.style.display = "none";
+			});
+			
+			
+			//当视频播放完成时，初始化进度条
+			videoplayer.addEventListener("ended",function () {
+				progress_bar_change.style.width = "0px";
+			});
+			
+			videoplayer.onvolumechange = function(){
+				//声音进度条的总宽度100px
+				volume_bar.style.width = videoplayer.volume*100 + "px";
+				
+			};
+			
+			//设置timeupdate事件
+			videoplayer.ontimeupdate = function (){
+				time1.innerHTML = change_time(videoplayer.currentTime);
+				//进度条的总宽度为450px，根据比值计算当前的宽度，并赋予进度条
+				progress_bar_change.style.width = videoplayer.currentTime/durationTime*450+"px";
+			};
+			
+		//定义当鼠标在video上移动的时候显示控制条
+				//鼠标移动时显示控制条，并将stay_time赋值1
+					videoplayer.onmousemove = function () {
+						appear();
+						mouse_stay_time =1;
+					};
+					controls_area.onmousemove = function () {
+						appear();
+						mouse_stay_time =1;
+					};
+			
+				//鼠标移入时，显示控制条，并开启stay_time重置计时器
+			videoplayer.onmouseover = function (){
+				appear();
+				timer = setInterval(function () {
+					mouse_stay_time =0;
+				},3000);
+			};
+				//鼠标移出时，清除计时器，并重置stay_time为0
+					videoplayer.onmouseout = function (){
+						clearInterval(timer);
+						mouse_stay_time =0;
+					};
+					controls_area.onmouseout = function (){
+						mouse_stay_time =0;
+						
+					};
+					
+//目前还解决不了chrome无法快进；  全屏模式无法显示控制条 ； 
+		</script>
+	</body>
+</html>

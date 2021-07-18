@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="无知的少年"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<meta name="generator" content="HBuilder"/>
+		<title>表单验证</title>
+		<style type="text/css">
+			*{
+					margin: 0;
+					padding: 0;
+					box-sizing: border-box;
+			}
+			#container{
+					width: 800px;
+					height: 700px;
+					background-color: #F4F4F4;
+					border: solid red 2px;
+					margin: 20px auto;
+			}
+			#container label{
+					font-size: 16px;
+					font-family: "微软雅黑";
+					font-weight: bolder;
+					
+			}
+			#container li{
+					list-style: none;
+					width: 550px;
+					margin: 10px auto;
+			}
+			#container li input{
+					width: 350px;
+					height: 30px;
+					border-radius: 10px;
+					border: solid gold 2px;
+					color: #6495ED;
+					background-color: white;
+					font-weight: bold;
+			}
+			#container li:last-child input{
+					width: 200px;
+					height: 40px;
+					margin-left: 86px;
+			}
+			#container li:last-child input:hover{
+					border:solid gold 3px;
+			}
+			#container li textarea{
+					border-radius: 10px;
+					border: solid gold 2px;
+					color: #6495ED;
+					background-color: white;
+					width: 356px;
+					height: 200px;
+					padding: 5px;
+			}
+			label span{
+					color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<form action="http://www.baidu.com" method="get" id="fo">
+				
+				<ul>
+					<li>
+						<label for="user"><span>*</span>用户名:</label>
+						<input type="text" name="user" id="user" value="" placeholder="请输入8到12位英文字母或数字，可以包含 - 和 _ "/>
+						<span class="info"></span>
+					</li>
+					<li>
+						<label for="nickname"><span>*</span>昵 &nbsp;&nbsp;称:</label>
+						<input type="text" name="nickname" id="nickname" value="" placeholder="请填写文明昵称，4-8个汉字"/>
+						<span class="info"></span>
+					</li>
+					<li>
+						<label for="password"><span>*</span>密  &nbsp;&nbsp;码:</label>
+						<input type="password" name="password" id="password" value="" placeholder="密码至少包含字母、数字、符号中的两项（8-16位）"/>
+						<span class="info"></span>
+					</li>
+					<li>
+						<label for="age"><span>*</span>年  &nbsp;&nbsp;龄:</label>
+						<input type="number" name="age" id="age" value="" placeholder="请填写真实年龄，18岁-99岁"/>
+						<span class="info"></span>
+					</li>
+					<li>
+						<label for="mail"><span>*</span>邮  &nbsp;&nbsp;箱:</label>
+						<input type="text" name="mail" id="mail" value="" placeholder="请填写常用邮箱"/>
+						<span class="info"></span>
+					</li>
+					<li>
+						<label for="phone"><span>*</span>手  &nbsp;&nbsp;机:</label>
+						<input type="number" name="phone" id="phone" value="" placeholder="请填写真实手机号"/>
+						<span class="info"></span>
+					</li>
+					<li>
+						<p>自我介绍:</p>
+						<textarea name="recommend" id="recommend" autofocus="autofocus"></textarea>
+						<span class="info"></span>
+					</li>
+					<li>
+						<input type="submit" name="submit" id="submi" value="提交" />
+					</li>
+				</ul>
+			</form>
+		</div>
+		
+		<script type="text/javascript">
+			
+			//获取所有的相关元素
+			var inputbox = document.getElementsByTagName("input"),
+				user = inputbox[0],
+				nickname = inputbox[1],
+				passw = inputbox[2],
+				age = inputbox[3],
+				mail = inputbox[4],
+				phone = inputbox[5],
+				fo = document.getElementById("fo"),
+				textdomain = document.getElementById("recommend"),
+				info = document.getElementsByClassName("info");
+			
+			//recommend自动获取焦点
+			window.onload = function () {
+//				textdomain.focus();
+//				var dis = document.createAttribute("disabled");
+//				dis.nodeValue = "disable"
+//				console.log(dis);
+//				user.setAttributeNode(dis)
+			};
+			//input绑定检察事件
+				//user
+			user.onchange=function () {
+				var content = user.value;
+				var regexp_user =/^[A-z0-9\-\_]{8,12}$/g;
+				//如果此项没有填写信息
+				if (content == "") {
+						user.style.backgroundColor = "darkorange";
+						info[0].innerHTML = "请填写此项";
+						info[0].style.color = "red";
+				}
+				//如果填写的信息符合要求
+				else if (regexp_user.test(content)) {
+						user.style.backgroundColor = "white";
+						info[0].innerHTML = "验证通过";
+						info[0].style.color = "#4AD536";
+					}
+				//如果填写的信息不符合要求
+				else{
+					user.style.backgroundColor = "darkorange";
+					info[0].innerHTML = "验证不通过";
+					info[0].style.color = "red";
+				}
+			};
+				
+				//nickname
+			nickname.onchange=function () {
+				var content = nickname.value;
+				var regexp_nickname =/^[\u4e00-\u9fa5]{4,8}$/g;
+				//如果此项没有填写信息
+				if (content == "") {
+						nickname.style.backgroundColor = "darkorange";
+						info[1].innerHTML = "请填写此项";
+						info[1].style.color = "red";
+				}
+				//如果填写的信息符合要求
+				else if (regexp_nickname.test(content)) {
+						nickname.style.backgroundColor = "white";
+						info[1].innerHTML = "验证通过";
+						info[1].style.color = "#4AD536";
+					}
+				//如果填写的信息不符合要求
+				else{
+					nickname.style.backgroundColor = "darkorange";
+					info[1].innerHTML = "验证不通过";
+					info[1].style.color = "red";
+				}
+			};
+				
+				//password
+			passw.onchange = function() {
+					var content = passw.value;
+					var regexp_passw1 = /^[a-zA-Z]$/g;
+					var regexp_passw2 = /^[\.\+\-\*\/,.<>?'";:\[\]{}\|\\)(&^%$#@!~`=]$/g;
+					var regexp_passw3 = /^[0-9]$/g;
+					var regexp_passw4 = /^[A-z0-9\.\+\-\*\/,.<>?'";:\[\]{}\|\\)(&^%$#@!~`=]{8,16}$/g;
+
+					var num = 0;
+					//如果此项没有填写信息
+					if(passw.value === "") {
+						passw.style.backgroundColor = "darkorange";
+						info[2].innerHTML = "请填写此项";
+						info[2].style.color = "red";
+					}
+					//如果密码符合表达式4,则进入下一步判断
+					else if(regexp_passw4.test(content)) {
+						//将content的每一个字符，依次进行匹配，看是否全部为数字
+						for(i = 0; i < content.length; i++) {
+							var torf = regexp_passw3.test(content.charAt(i));
+							if(torf) {
+								num += 1;
+								regexp_passw3.lastIndex = 0;
+							}
+						}
+						//如果全部为数字，则验证不通过
+						if (num == content.length) {
+							passw.style.backgroundColor = "darkorange";
+							info[2].innerHTML = "密码太简单";
+							info[2].style.color = "red";
+						} else {
+							//如果并不是全部为数字，则匹配是否全部为符号
+							num = 0;
+							for (i=0;i<content.length;i++){
+								var torf = regexp_passw2.test(content.charAt(i));
+								if (torf) {
+									num+=1;
+									regexp_passw2.lastIndex=0;
+								} 
+							}
+						//如果全部为符号，则验证不通过
+						if (num == content.length) {
+							passw.style.backgroundColor = "darkorange";
+							info[2].innerHTML = "密码太简单";
+							info[2].style.color = "red";
+						} else {
+							//如果并不是全部为符号，则匹配是否全部为字母
+							num = 0;
+							for (i=0;i<content.length;i++){
+								var torf = regexp_passw1.test(content.charAt(i));
+								if (torf) {
+									num+=1;
+									regexp_passw1.lastIndex=0;
+								}
+							}
+						//如果全部为字母，则验证不通过
+								if (num == content.length) {
+									passw.style.backgroundColor = "darkorange";
+									info[2].innerHTML = "密码太简单";
+									info[2].style.color = "red";
+								} else {
+									//到这就说明content既不全是数字，也不全是符号，也不全是字母。  所以验证通过
+									passw.style.backgroundColor = "white";
+									info[2].innerHTML = "验证通过";
+									info[2].style.color = "#4AD536";
+								}
+							}
+						}
+						//如果填写的信息不符合要求
+						
+					//好像不存在下面的情况，但是也写上了
+					}else {
+							passw.style.backgroundColor = "darkorange";
+							info[2].innerHTML = "验证不通过";
+							info[2].style.color = "red";
+					}
+			};//function结束
+					
+					
+				//age
+			age.onchange=function () {
+				var content = age.value;
+				//如果此项没有填写信息
+				if (content == "") {
+						age.style.backgroundColor = "darkorange";
+						info[3].innerHTML = "请填写此项";
+						info[3].style.color = "red";
+				}
+				//如果填写的信息符合要求
+				else if (content<=99 && content>=18) {
+						age.style.backgroundColor = "white";
+						info[3].innerHTML = "验证通过";
+						info[3].style.color = "#4AD536";
+					}
+				//如果填写的信息不符合要求
+				else{
+					age.style.backgroundColor = "darkorange";
+					info[3].innerHTML = "验证不通过";
+					info[3].style.color = "red";
+				}
+			};
+			
+				//mail
+			mail.onchange=function () {
+				var content = mail.value;
+				var regexp_mail =/^\w[\w\.]*@[A-Za-z0-9]+\.(com|cn)$/g;
+				//如果此项没有填写信息
+				if (content == "") {
+						mail.style.backgroundColor = "darkorange";
+						info[4].innerHTML = "请填写此项";
+						info[4].style.color = "red";
+				}
+				//如果填写的信息符合要求
+				else if (regexp_mail.test(content)) {
+						mail.style.backgroundColor = "white";
+						info[4].innerHTML = "验证通过";
+						info[4].style.color = "#4AD536";
+					}
+				//如果填写的信息不符合要求
+				else{
+					mail.style.backgroundColor = "darkorange";
+					info[4].innerHTML = "验证不通过";
+					info[4].style.color = "red";
+				}
+			};
+				
+				//phone
+			phone.onchange=function () {
+				var content = phone.value;
+				var regexp_phone =/^(13|14|15|18)[0-9]{9}$/g;
+				//如果此项没有填写信息
+				if (content == "") {
+						phone.style.backgroundColor = "darkorange";
+						info[5].innerHTML = "请填写此项";
+						info[5].style.color = "red";
+				}
+				//如果填写的信息符合要求
+				else if (regexp_phone.test(content)) {
+						phone.style.backgroundColor = "white";
+						info[5].innerHTML = "验证通过";
+						info[5].style.color = "#4AD536";
+					}
+				//如果填写的信息不符合要求
+				else{
+					phone.style.backgroundColor = "darkorange";
+					info[5].innerHTML = "验证不通过";
+					info[5].style.color = "red";
+				}
+			};
+			
+				//textdomain
+			textdomain.onchange = function () {
+				var content = textdomain.value;
+				if (content.length<=255 && content != "") {
+					textdomain.style.backgroundColor = "white"
+					info[6].innerHTML = "验证通过";
+					info[6].style.color = "#4AD536";
+					
+				} else{
+					info[6].innerHTML = "验证不通过";
+					info[6].style.color = "red";
+				}
+			};
+			
+				//提交表单时的验证所有必填项是否通过验证
+			fo.addEventListener("submit",function (event){
+					if (info[0].innerHTML == "验证通过" && info[1].innerHTML == "验证通过" &&
+						info[2].innerHTML == "验证通过" && info[3].innerHTML == "验证通过" &&
+						info[4].innerHTML == "验证通过" && info[5].innerHTML == "验证通过" &&
+						info[6].innerHTML == "验证通过" 
+						) {
+						alert("恭喜您，表单提交成功");
+					} else{
+						
+						alert("请按要求完善表单");
+						event.preventDefault();
+					}
+			});
+		</script>
+		
+		
+		
+	</body>
+</html>

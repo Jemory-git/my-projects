@@ -1,0 +1,1389 @@
+/*1.尽量命名*/
+/*2.每个元素都给固定宽度*/
+/*3.零散的多个元素尽量用外盒子括起来*/
+/*4.复制的时候一定注意开始和终止点是否有符号多余或遗漏*/
+
+/*header 开始*/
+header{
+		width: 1200px;
+		margin: 0 auto;
+}
+	/*nav*/
+header nav{
+		width: 100%;
+		height: 30px;
+		background-color: rgb(247,247,247);
+}
+header nav div.w1200{
+		width: 1200px;
+		height: 30px;
+		margin: 0 auto;
+}
+header nav div.left,header nav div.right{
+		width: 600px;
+		height: 30px;
+		float: left;
+}
+header nav div.left>div,header nav div.right>div{
+		height: 30px;
+		width: 110px;
+		float: left;
+		text-align: center;
+		line-height: 30px;
+		margin-right: 5px;
+		padding-right: 10px;
+		overflow: hidden;
+		border: solid 1px rgb(247,247,247);
+		box-shadow: 1px 0px 0px #eee;
+		color: darkgray;
+		z-index: 999;
+		position: relative;
+}
+header nav div.left>div:hover,header nav div.right>div:hover{
+		background-color: white;
+}
+		/*nav-left 开始*/
+
+header nav div.left>div:first-of-type{
+		width: 190px;
+}
+header nav div.left div a#login_btn{
+		color: red;
+}
+header nav div.left div.my_dm a{
+		display: block;
+		padding: 0 10px 10px 10px;
+		height: 30px;
+		line-height: 30px;
+}
+header nav div.left div.my_dm a:hover{
+		color: red;
+		border-bottom: solid white 1px;
+		background-color: white;
+}
+header nav div.left div.my_dm:hover{
+		background-color: white;
+		height: 180px;
+		border: solid 1px #eee;
+}/*我的大麦 结束*/
+		/*nav-left 结束*/
+		/*nav-right 开始*/
+header nav div.right div.dm_wx{/*微信二维码 弹出框 开始*/
+		width: 110px;
+		height: 30px;
+		text-align: center;
+}
+header nav div.right div.dm_wx:hover{/*微信二维码 弹出框 结束*/
+		height: 130px;
+		border: solid 1px #eee;
+		background-color: white;
+}
+header nav div.right div.dm_phone{
+		text-align: center;
+}
+header nav div.right div.dm_phone:hover{
+		background-color: white;
+		overflow: visible;
+		border-left: solid 1px #eee;
+		border-bottom: solid 1px #fff;
+		border-right: solid 1px #eee;
+}
+header nav div.right div.dm_phone div:nth-of-type(1){
+		width: 120%;
+		text-align: center;
+}
+header nav div.right div.dm_phone div:nth-of-type(2){/*大麦手机版 弹出框 开始*/
+		width: 280px;
+		height: 470px;
+		position: absolute;
+		left: -1px;
+		top: 28px;
+		border: solid 1px #eee;
+		border-top: none;
+		padding: 10px;
+		background-color: white;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li{
+		height: 30px;
+		margin: 5px auto;
+		color: darkgray;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li a{
+		height: 40px;
+		width: 196px;
+		display: block;
+		margin: 0 auto;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li.client_qrcode,header nav div.right div.dm_phone div:nth-of-type(2) ul li.M_qrcode,header nav div.right div.dm_phone div:nth-of-type(2) ul li a.iphone,header nav div.right div.dm_phone div:nth-of-type(2) ul li a.ipad,header nav div.right div.dm_phone div:nth-of-type(2) ul li a.Android,header nav div.right div.dm_phone div:nth-of-type(2) ul li a.wPhone{
+		background-repeat: no-repeat;
+		background-image: url(../img/dm-phone.png);
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li.client_qrcode{
+		height: 90px;
+		width: 90px;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li.M_qrcode{
+		height: 90px;
+		width: 90px;
+		background-position: 0 -270px;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li a.iphone{
+		background-position: 0 -96px;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li a.ipad{
+		background-position: 0 -136px;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li a.Android{
+		background-position: 0 -176px;
+}
+header nav div.right div.dm_phone div:nth-of-type(2) ul li a.wPhone{/*大麦手机版 弹出框 结束*/
+		background-position: 0 -216px;
+}
+header nav div.right div.dm_service{/*客户服务 部分 开始*/
+		text-align: center;
+}
+header nav div.right div.dm_service:hover{
+		overflow: visible;
+}
+header nav div.right div.dm_service>div{
+		width: 115%;
+		border-left: solid 1px rgb(247,247,247);
+		border-right: solid rgb(247,247,247) 1px;
+		height: 210px;
+}
+header nav div.right div.dm_service:hover>div{
+		border-bottom: solid #eee 1px;
+		border-right: solid #eee 1px;
+		border-left: solid #eee 1px;
+		background-color: white;
+}
+header nav div.right div.dm_service a{
+		display: block;
+		padding-bottom: 5px;
+}
+header nav div.right div.dm_service a:hover{/*客户服务 部分 结束*/
+		color: red;
+}
+header nav div.right div.website_gather{/*站点导航 开始*/
+		width: 100px;
+		text-align: center;
+}
+header nav div.right div.website_gather:hover{
+		background-color: white;
+		overflow: visible;
+		border-bottom: solid 1px #fff;
+		border-left: solid 1px #eee;
+}
+header nav div.right div.website_gather>div{
+		width: 550px;
+		position: absolute;
+		background-color: white;
+		border-right: solid 1px #eee;
+		border-left: solid 1px #eee;
+		border-bottom: solid 1px #eee;
+		left: -450px;
+		top: 29px;
+}	
+header nav div.right div.website_gather>div>div{
+		float: left;
+		margin: 20px;
+}			
+header nav div.right div.website_gather>div>div ul li{
+		float: left;
+		width: 70px;
+		text-align: center;
+		height: 30px;
+		margin: 1px ;
+		color: slateblue;
+}
+header nav div.right div.website_gather>div>div ul li:hover a{
+		color: red;
+}
+header nav div.right div.website_gather>div>div ul li a{
+		width: 100%;
+		height: 100%;
+		display: block;
+		box-shadow: 0 0 10px #eee;
+}
+header nav div.right div.website_gather>div>div.nav_special_service,header nav div.right div.website_gather>div>div.nav_catalog_show{
+		width: 233px;
+		text-align: center;
+		box-shadow: 0 0 10px #ddd;
+}
+header nav div.right div.website_gather>div>div.nav_city{
+		width: 505px;
+		text-align: center;
+		box-shadow: 0 0 10px #ddd;
+}
+header nav div.right div.website_gather>div>div>p{/*站点导航 结束*/
+		color: darkgray;
+}
+		/*nav-right 结束*/
+		/*logoANDsearch 开始*/
+header section.logoANDsearch{
+		width: 1200px;
+		height: 150px;	
+		margin: 0 auto;	
+		position: relative;
+}
+header section.logoANDsearch  div.logo{
+		width: 400px;
+		height: 150px;
+		padding: 40px;
+		float: left;
+		z-index: 80;
+		position: relative;
+}
+header section.logoANDsearch  div.logo div.city_select{
+		float: right;
+}
+header section.logoANDsearch  div.logo div.city_select>a{
+		display: block;
+		height: 30px;
+		width: 140px;
+		margin-top: 5px;
+		text-align: center;
+		line-height: 30px;
+}
+header section.logoANDsearch  div.logo div.city_select>a#nationwide{
+		font-size: 16px;
+}
+header section.logoANDsearch  div.logo div.city_select>a#nationwide:hover{
+		color: red;
+}
+header section.logoANDsearch  div.logo div.city_select>a#recommend_local{
+		border: solid 1px #eee;
+		color: darkgray;
+}
+header section.logoANDsearch  div.logo div.city_select>a#recommend_local>span{
+		background: no-repeat;
+		display: inline-block;
+		vertical-align: sub;
+		width: 10px;
+		height: 15px;
+		background-image: url(../img/index-icon.png);
+		background-position: -191px 2px;
+}
+header section.logoANDsearch  div.search{
+		width: 800px;
+		height: 150px;
+		float: right;
+		padding: 40px;
+		position: relative;
+}
+header section.logoANDsearch  div.search p{
+		width: 600px;
+		height: 40px;
+		border: solid red 2px;
+}
+header section.logoANDsearch  div.search p input{
+		height: 100%;
+		width: 80%;
+		border: none;
+		-webkit-appearance:none;/*针对safari去除input边框*/
+		padding: 0 10px;
+}
+header section.logoANDsearch  div.search p a#search_btn{
+		display: block;
+		float: right;
+		text-align: center;
+		line-height: 35px;
+		background-color: #f42155;
+		color: white;
+		font-size: 16px;
+		height: 100%;
+		width: 19.6%;
+}
+header section.logoANDsearch  div.search p a#search_btn:hover{
+		background-color: red;
+}
+header section.logoANDsearch  div.search ul li{
+		float: left;
+		margin: 5px;
+		color: darkgray;
+}
+header section.logoANDsearch  div.search ul li:hover{
+		color: red;
+}
+		/*logoANDsearch 结束*/
+/*header 结束*/
+
+/*main 开始*/
+main section.banner_area{
+		width: 100%;
+		height: 460px;
+		position: relative;
+}
+main section.banner_area>p{
+		width: 1200px;
+		height: 40px;
+		margin: 0 auto;
+}
+main section.banner_area>p>a{
+		display: inline-block;
+		padding: 0 10px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		margin: 0 40px 0 0;
+		font-size: 16px;
+}
+main section.banner_area>p>a:hover{
+		color: red;
+}
+main section.banner_area>p>a.all_catalog{
+		width: 200px;
+		background-color: #d70000;
+		color: white;
+}
+main section.banner_area>p>a.all_catalog:hover{
+		color: white;
+		text-decoration: underline;
+}
+main section.banner_area div.banner,main section.banner_area div.tittle{
+		width: 100%;
+		height: 420px;
+		margin: 0 auto;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+}
+main section.banner_area div.banner>a.banner_item{/*banner 图 开始*/
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		z-index: 20;
+		transition: opacity 1s;
+		-webkit-transition: opacity 1s;
+}
+main section.banner_area div.banner>a>img{
+		display: block;
+		margin: 0 auto;
+}
+main section.banner_area div.banner>span{/*翻页按钮 开始*/
+		position: absolute;
+		height: 150px;
+		width: 40px;
+		line-height: 150px;
+		text-align: center;
+		color: rgba(0,0,0,0.7);
+		font-size: 60px;
+		display: none;
+		cursor: pointer;
+		z-index: 60;
+		color: #ccc;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		top: 50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+}
+main section.banner_area div.banner:hover>span{
+		display: block;
+}
+main section.banner_area div.banner>span:hover{
+		color: white;
+}
+main section.banner_area div.banner>span#turn_page_left{
+		left: 350px;
+		background: linear-gradient(to left ,rgba(0,0,0,0),rgba(0,0,0,0.2));
+		border-radius: 10px 0  0 10px;
+}
+main section.banner_area div.banner>span#turn_page_right{/*翻页按钮 结束*//*banner图结束*/
+		left: 1200px;
+		background: linear-gradient(to right ,rgba(0,0,0,0),rgba(0,0,0,0.2));
+		border-radius: 0 10px 10px 0;
+}
+
+main section.banner_area div.catalog_area{/*左侧分类 列表 开始*/
+		width: 1200px;
+		height: 0px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 60;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area{
+		background-color: #e90f3c;
+		width: 200px;
+		height: 420px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item{
+		height: 45px;
+		width: 100%;
+		padding-top: 1px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item>a{
+		display: block;
+		line-height: 40px;
+		height: 100%;
+		color: white;
+		padding-left: 30px;
+		/*text-align: center;*/
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item>a:hover{
+		background-color: #d70000;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item>a>i{
+		background: url(../img/index-icon.png) no-repeat;
+		height: 30px;
+		width: 30px;
+		vertical-align: middle;
+		display: inline-block;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item>a>span{
+		float: right;
+		margin-top: 13px;
+		margin-right: 10px;
+		
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(1)>a>i{
+		background-position: -173px -90px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(2)>a>i{
+		background-position: -173px -130px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(3)>a>i{
+		background-position: -173px -170px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(4)>a>i{
+		background-position: -173px -210px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(5)>a>i{
+		background-position: -173px -250px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(6)>a>i{
+		background-position: -173px -290px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(7)>a>i{
+		background-position: -173px -330px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(8)>a>i{
+		background-position: -173px -370px;
+}
+main section.banner_area div.catalog_area ul.catalog_item_area li.catalog_item:nth-of-type(9)>a>i{/*左侧分类 列表 结束*/
+		background-position: -173px -410px;
+}
+
+main section.banner_area div.catalog_area div.catalog_content{/*分类内容 开始*/
+		position: absolute;
+		background-color: rgba(246,246,246,1);
+		width: 700px;
+		height: 420px;
+		left: 200px;
+		top: 0;
+		padding: 20px;
+		display: none;
+		opacity: 0.9;
+		transition: opacity 0.3s;
+		-webkit-transition: opacity 0.3s;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header{
+		width: 100%;
+		height: 50px;
+		border-bottom: dotted 1px darkgray;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header ul li{
+		float: left;
+		margin-right: 10px;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header ul li a{
+		height: 30px;
+		padding: 0 10px;
+		display: inline-block;
+		line-height: 30px;
+		text-align: center;
+		color: darkgray;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header ul li a:hover{
+		color: red;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header ul li:first-of-type a:hover{
+		color: darkgray;
+		cursor: default;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header ul li:after{
+		content: "|";
+		color: darkgray;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header ul li:first-of-type:after,main section.banner_area div.catalog_area div.catalog_content div.content_header ul li:last-of-type:after{
+		content: none;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_header ul li:first-of-type a{
+		width: 100px;
+		background-color: white;
+		border-radius: 30px;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_footer{
+		width: 100%;
+		height: 300px;
+}
+main section.banner_area div.catalog_area div.catalog_content div.content_footer>span{
+		display: block;
+		padding: 20px 0;
+		font-size: 18px;
+}
+.content_footer ul.hot_content li{
+		float: left;
+		margin-right: 20px;
+}
+.content_footer ul.hot_content li a p{
+		width: 145px;
+		height: 20px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin: 10px 0;
+}
+.content_footer ul.hot_content li>p{
+		width: 145px;
+		height: 20px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		color: darkgray;
+}
+.content_footer ul.hot_content li>p span{
+		font-weight: bold;
+		color: black;
+}
+		
+main section.banner_area div.tittle{/*banner 底部标题 开始*/
+	height: 40px;
+	background-color: rgba(0,0,0,0.3);
+	z-index: 50;
+}
+main section.banner_area div.tittle ul{
+		margin-left: 328px;
+		width: 951px;
+		height: 40px;
+		position: relative;
+}
+main section.banner_area div.tittle ul li{
+		float: left;
+		text-align: center;
+		line-height: 40px;
+		width: 19.9%;
+		height: 100%;
+		color: white;
+		position: absolute;
+		display: none;
+		cursor: pointer;
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+}
+.banner_tittle_center{
+		background-color: rgba(190,60,100,0.5) !important;
+		left: 40%;
+		display: block !important;
+}
+.banner_tittle_left1{
+		left: 20%;
+		display: block !important;
+}
+.banner_tittle_left2{
+		left: 0%;
+		display: block !important;
+}
+.banner_tittle_right1{
+		left: 60%;
+		display: block !important;
+}
+.banner_tittle_right2{/*banner 底部标题 结束*/
+		left: 80%;
+		display: block !important;
+}
+		/*toogleThree 开始*/
+main section.under_banner{
+		width: 1200px;
+		height: 370px;
+		margin: 50px auto;
+		position: relative;
+		border: solid 1px darkgray;
+}
+main section.under_banner header{
+		height: 50px;
+		width: 100%;
+		background-color: white;
+		line-height: 50px;
+		border-bottom: solid 1px #dedede;
+}
+main section.under_banner header>span{
+		display: block;
+		height: 50px;
+		border-bottom: solid 1px #eee;
+		float: left;
+		padding: 0px 30px;
+		border-right: solid 1px #eee;
+		cursor: default;
+		background-color: white;
+}
+main section.under_banner header .active{
+		border-bottom: solid 1px white;
+		border-top: solid red 1px;
+}
+main section.under_banner>div.container_ul{
+		width: 100%;
+		height: 318px;
+		overflow-x: scroll;
+		position: absolute;
+}
+main section.under_banner ul.hot_content{/*复用分类内容里的样式*/
+		height: 300px;
+		width: 100%;
+		padding: 20px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background-color: white;
+}
+main section.under_banner ul.hot_content li{
+		margin: 0 24px;
+		position: relative;
+}
+main section.under_banner ul.hot_content span#change{
+		position: absolute;
+		right: 20px;
+		top: -53px;
+}
+.siteAndDate{
+		width: 145px;
+		height: 0px;
+		background-color: rgba(252,94,93,0.8);
+		transition: height 0.3s;
+		-webkit-transition: height 0.3s;
+		position: absolute;
+		left: 0;
+		bottom: 64px;
+		overflow: hidden;
+}
+.siteAndDate p{
+		color: white;
+		margin: 5px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+}
+main section.content_footer ul.hot_content li:hover>div.siteAndDate{
+		height: 60px;
+}
+		/*toogleThree 结束*/
+main section.advertising{
+		width: 1200px;
+		height: 90px;
+		margin: 0 auto;
+}
+main section.advertising>a{
+		width: 393px;
+		height: 90px;
+		display: block;
+		float: left;
+		margin-right: 10px;
+}
+main section.advertising>a:last-child{
+		margin-right: 0;
+}
+		/*巡演展示区 开始*/
+main section.show_tour{
+		width: 1200px;
+		margin: 50px auto;
+		height: 402px;
+}
+main section.show_tour div.st_left{
+		width: 900px;
+		height: 100%;
+		padding: 20px;
+		border: solid 1px darkgrey;
+}
+main section.show_tour div.st_right{
+		width: 300px;
+		padding: 20px 10px;
+		border: solid 1px darkgrey;
+		height: 100%;
+}
+main section.show_tour div{
+		float: left;
+}
+main section.show_tour div.tour_div{
+		position: relative;
+		height: 362px;
+		width: 238px;
+		margin-right: 10px;
+}
+main section.show_tour>div.tour_div:last-of-type{
+		width: 280px;
+		height: 402px;
+		margin-left: 20px;
+}
+main section.show_tour div.son_div{
+		overflow: hidden;
+		
+}
+main section.show_tour div.tour_div:last-of-type{
+		margin-right: 0;
+}
+main section.show_tour div.d4{
+		width: 114px;
+}
+main section.show_tour div.tour_div div.tour_info{
+		position: absolute;
+		background-color: rgba(252,94,93,0.6);
+		left: 0;
+		bottom: 0;
+		color: white;
+		width: 100%;
+		overflow: hidden;
+		transition: all 0.5s;
+		-webkit-transition: all 0.5s;
+		height: 0;
+}
+main section.show_tour div.tour_div div.son_div:hover>div.tour_info{
+		top: 0;
+		height: 100%;
+}
+main section.show_tour div.tour_div div.tour_info p.tour_subject{/*tourinfo 统一进入巡演 样式*/
+		width: 90%;
+		text-align: center;
+		height: 30px;
+		position: absolute;
+		bottom: 0;
+		left: 5px;
+		border-top: dotted 1px #ccc;
+}
+main section.show_tour div.tour_div div.tour_info p.tour_subject a{/*tourinfo 统一进入巡演 样式*/
+		display: block;
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		
+}
+main section.show_tour div.tour_div div.tour_info ul{/*tourinfo 统一ul样式*/
+		width: 100%;
+		height: 50px;
+		padding: 5px 0 0 5px;
+}
+main section.show_tour div.tour_div div.tour_info ul li{/*tourinfo 统一li样式*/
+		float: left;
+		margin: 2px 5px;
+		font-size: 12px;
+}
+main section.show_tour div.tour_div div.tour_info a:hover{/*tourinfo 统一a样式*/
+		text-decoration: underline;
+}
+main section.show_tour div.d1 div.tour_info{
+		height: 200px;
+		bottom: -100px;
+}
+main section.show_tour div.d1:hover div.tour_info{
+		bottom: 0px;
+}
+main section.show_tour div.d1 div.tour_info p:first-of-type{
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+		font-size: 20px;
+}
+main section.show_tour div.d1 div.tour_info p:last-of-type{
+		height: 40px;
+		line-height: 40px;
+}
+.w114{
+		width: 114px;
+		height: 114px;
+		position: relative;
+		/*margin-bottom: 5px;*/
+}
+.w238{
+		width: 238px;
+		height: 114px;
+		position: relative;
+		margin-top: 10px;
+}
+.h238{
+		width: 238px;
+		height: 238px;
+		position: relative;
+}
+.more_tour a{
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(252,94,93,1);
+		text-align: center;
+		line-height: 114px;
+		color: white;
+		font-size: 20px;
+		font-weight: bold;
+}
+.margin_right10{
+		margin-right: 10px;
+}
+.margin_top10{
+		margin-top: 10px;
+}
+		/*巡演展示区 结束*/
+		/*当前城市 开始*/
+main section.current_city{
+		width: 1200px;
+		margin: 0px auto;
+		height: 402px;
+}
+main section.current_city div.cc_left{
+		width: 900px;
+		height: 100%;
+		padding: 0 20px;
+		border: solid 1px darkgrey;
+		float: left;
+}
+main section.current_city div.cc_right{
+		width: 280px;
+		border: solid 1px darkgrey;
+		height: 100%;
+		float: right;
+		position: relative;
+}
+main section.current_city div.cc_left>p{
+		height: 50px;
+		width: 100%;
+		line-height: 50px;
+		border-bottom: solid 1px #eee;
+}
+main section.current_city div.cc_left p span:nth-of-type(1){
+		font-weight: bold;
+		font-size: 20px;
+		margin-right: 10px;
+}
+main section.current_city div.cc_left p span:nth-of-type(2){
+		color: darkgray;
+}
+main section.current_city div.cc_left p span:nth-of-type(3){
+		color: slategray;
+		float: right;
+}
+main section.current_city div.cc_left p span a:hover{
+		color: red;
+}
+main section.current_city div.cc_left>div{
+		width: 429px;
+		height: 348px;
+		float: left;
+}
+main section.current_city div.cc_left>div p{
+		height: 30px;
+		width: 100%;
+		text-align: center;
+		line-height: 30px;
+		color: slategray;
+}
+main section.current_city div.cc_left>div.artist_forThisLocality{
+		border-right: solid 1px #eee;
+}
+main section.current_city div.cc_left>div.artist_forThisLocality ul,main section.current_city div.cc_left>div.local_Venues ul{
+		width: 100%;
+		height: 316px;
+}
+main section.current_city div.cc_left>div.artist_forThisLocality ul li,main section.current_city div.cc_left>div.local_Venues ul li{
+		float: left;
+		padding: 15px 19px;
+		position: relative;
+}
+main section.current_city div.cc_left>div.artist_forThisLocality ul li a span,main section.current_city div.cc_left>div.local_Venues ul li a span{
+		display: block;
+		width: 100px;
+		height: 20px;
+		text-align: center;
+		color: darkgray;
+		line-height: 20px;
+}
+main section.current_city div.cc_left>div.artist_forThisLocality ul li a img,main section.current_city div.cc_left>div.local_Venues ul li a img{
+		border-radius: 50%;
+}
+main section.current_city div.cc_left>div.artist_forThisLocality ul li:hover a img,main section.current_city div.cc_left>div.local_Venues ul li:hover a img{
+		box-shadow: 0 0 10px #666;
+}
+		/*当前城市 结束*/
+		/*订阅 区域 开始*/
+main section.current_city div.cc_right span.subscribe{
+		display: block;
+		float: left;
+		width: 50%;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		border-top: 2px solid white;
+		border-bottom: solid 1px darkgray;
+		cursor: default;
+}
+main section.current_city div.cc_right span.subscribe1{
+		border-right: solid 1px darkgray;
+}
+main section.current_city div.cc_right span.spanHover{
+		border-bottom: solid 1px white;
+		border-top: 2px solid red;
+}
+main section.current_city div.cc_right ul{
+		width: 100%;
+		height: 348px;
+		padding: 10px 20px;
+		overflow-y: auto;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background-color: white;
+}
+main section.current_city div.cc_right ul#subscribe_Venues{
+		display: none;
+}
+main section.current_city div.cc_right ul li{
+		height: 70px;
+		width: 100%;
+}
+main section.current_city div.cc_right ul li div{
+		height: 70px;
+}
+main section.current_city div.cc_right ul li div:nth-of-type(1){
+		width: 77%;
+		float: left;
+}
+main section.current_city div.cc_right ul li div:nth-of-type(2){
+		text-align: center;
+		float: right;
+}
+main section.current_city div.cc_right ul li div:nth-of-type(2) a{
+		display: block;
+		line-height: 30px;
+		height: 30px;
+		width: 50px;
+		color: white;
+		background-color: red;
+		border-radius: 5px;
+		margin-top: 20px;
+		font-weight: bold;
+}
+main section.current_city div.cc_right ul li div span{
+		display: block;
+		padding: 10px 0 0 10px;
+		float: left;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 108px;
+}
+main section.current_city div.cc_right ul li div span:nth-of-type(3){
+		font-size: 10px;
+		color: darkgray;
+}
+		/*订阅 区域 结束*/
+		/*floor 通用样式区域 开始*/
+main section.floors{
+		width: 1200px;
+		height: 576px;
+		margin: 50px auto;
+		border: solid darkgrey 1px;
+		padding: 0 20px;
+}
+main section.floors h1{
+		height: 50px;
+		width: 100%;
+		line-height: 50px;
+}
+main section.floors h1 span{
+		color: red;
+		font-size: 22px;
+		padding-right: 10px;
+}
+main section.floors h1 a:first-of-type{
+		font-size: 20px;
+}
+main section.floors h1 a:last-of-type{
+		color: darkgray;
+		float: right
+}
+main section.floors h1 a:hover{
+		color: red;
+}
+main section.floors div.f_div{
+		float: left;
+}
+main section.floors div.div_left>a{
+		display: block;
+		width: 277px;
+		height: 373px;
+		position: relative;
+}
+main section.floors div.div_left a div{
+		background-color: rgba(250,0,0,0.7);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 277px;
+		height: 130px;
+}
+main section.floors div.div_left a div p{
+		color: white;
+		font-size: 16px;
+		padding: 20px 20px 0 20px;
+}
+main section.floors div.div_left a div span{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 3px;
+		display: block;
+		background: url(../img/floor/boder.png) repeat-x;
+}
+main section.floors div.div_left ul{
+		overflow: auto;
+		width: 277px;
+}
+main section.floors div.div_left ul li{
+		float: left;
+		border: solid 1px #eee;
+		width: 80px;
+		text-align: center;
+		margin: 10px 5px 0 5px;
+		color: darkgray;
+		padding: 5px 0;
+}
+main section.floors div.div_left ul li:hover{
+		color: red;
+}
+main section.floors div.div_middle{
+		overflow: auto;
+		width: 620px;
+		padding: 0 10px;
+}
+main section.floors div.div_middle div.floor_containers{
+		height: 358px;
+		width: 100%;
+		position: relative;
+}
+main section.floors div.div_middle div.floor_containers>div{
+		float: left;
+		width: 300px;
+		margin-bottom: 25px;
+}
+main section.floors div.div_middle div.floor_containers>div>span{
+		display: block;
+		float: left;
+		width: 112px;
+		margin: 0 15px 0 0;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_text{
+		width: 158px;
+		font-size: 12px;
+		color: slategray;
+		padding: 4px 0;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_show_time{
+		color: darkgray;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_text a:hover{
+		color: red;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_price{
+		color: #000;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_grade{
+		position: relative;
+		height: 15px;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_grade span.grade_star{
+		width: 90px;
+		height: 15px;
+		display: inline-block;
+		background: url(../img/floor/star.png) no-repeat bottom;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_grade span.grade_star_score{
+		background-position:-20px 0;
+}
+main section.floors div.div_middle div.floor_containers div>span.floor_grade span.grade_score{
+		width: 22px;
+		margin: 0 0 0 0;
+		color: slateblue;
+		font-size: 14px;
+		font-weight: bold;
+		position: absolute;
+		right: 40px;
+		top: -1px;
+}
+main section.floors div.div_middle div.floor_comment{
+		width: 600px;
+		padding: 10px 0 0 0;
+		margin-bottom: 0;
+		border-top: dotted 1px #ddd;
+}
+main section.floors div.div_middle ul.floor_comment{
+		overflow: hidden;
+}
+main section.floors div.div_middle ul.floor_comment li{
+		width: 550px;
+		height: 30px;
+		margin-bottom: 15px;
+		margin-left: 30px;
+}
+main section.floors div.div_middle ul.floor_comment li div{
+		float: left;
+		height: 30px;
+}		
+main section.floors div.div_middle ul.floor_comment li div.user_comment{
+		width: 510px;
+		padding-left: 10px;
+		font-size: 12px;
+		color: darkgray;
+}
+main section.floors div.div_middle ul.floor_comment li div.user_comment a:hover{
+		color: red;
+		text-decoration: underline;
+}
+main section.floors div.div_right{
+		border: solid 1px #eee;
+		width: 260px;
+		height: 508px;
+		position: relative;
+}
+main section.floors div.div_right ul.ranking{
+		width: 100%;
+		background-color: white;
+}
+main section.floors div.div_right ul.ranking li{
+		width: 90%;
+		height: 20px;
+		line-height: 18px;
+		margin: 10px auto;
+}
+main section.floors div.div_right ul.ranking li span{
+		display: block;
+		float: left;
+		font-size: 12px;
+}
+main section.floors div.div_right ul.ranking li span:first-of-type{
+		width: 18px;
+		height: 15px;
+		text-align: center;
+		line-height: 15px;
+		background-color: lightgray;
+		color: white;
+		margin-top: 2px;
+}
+main section.floors div.div_right ul.ranking li span:nth-of-type(2){
+		color: darkgray;
+}
+main section.floors div.div_right ul.ranking li span:nth-of-type(2) a{
+		display: block;
+		padding: 0 5px 0;
+		width: 170px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+}
+main section.floors div.div_right ul.ranking li span:nth-of-type(3){
+		color: orange;
+		padding-top: 2px;
+		float: right;
+}
+		/*floor 通用样式区域 结束*/
+		/*1F 区域 开始*/
+main section.f1 div.div_right span.ranking_tittle{
+		display: block;
+		float: left;
+		border-bottom: solid 1px #eee;
+		width: 50%;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		background-color: #f3f3f3;
+}
+main section.f1 div.div_right span.toggleRanking{
+		background-color: white;
+		border-bottom: solid white 1px;
+		cursor: default;
+}
+main section.f1 div.div_right span.ranking_tittle + span{
+		border-left: solid 1px #eee;
+}
+main section.f1 div.div_right ul.ranking{
+		position: absolute;
+		width: 100%;
+		height: 476px;
+		left: 0;
+		top: 30px;
+		background-color: white;
+}
+		/*1F 区域 结束*/
+		/*2F 5F 区域 开始*/
+main section.f2,main section.f5{
+		height: 450px;
+}
+main section.f2 div.div_right,main section.f5 div.div_right{
+		height: 374px;
+}
+		/*2F 5F 区域 结束*/
+		/*3F 4F 区域 开始*/
+main section.f3,main section.f4{
+		height: 530px;
+}
+main section.f3 div.div_right,main section.f4 div.div_right{
+		height: 450px;
+}
+		/*3F 4F 区域 结束*/
+		
+/*main 结束*/
+/*footer 开始*/
+footer{
+		width: 100%;
+		height: 450px;
+		background-color: rgb(247,247,247);
+}
+footer div.damai_business{
+		width: 1200px;
+		margin: 0 auto;
+		padding: 30px 0;
+		overflow: auto;
+}
+footer div.damai_business ul{
+		float: left;
+		width: 12.49%;
+		height: 150px;
+}
+footer div.damai_business ul li{
+		text-align: center;
+}
+footer div.damai_business ul li:first-of-type{
+		font-size: 16px;
+		color: #555;
+		margin-bottom: 10px;
+}
+footer div.damai_business ul li + li{
+		color: darkgray;
+		font-size: 12px;
+		margin-bottom: 5px;
+}
+footer div.damai_business ul:last-of-type{
+		width: 1200px;
+		height: 50px;
+		padding: 10px 250px;
+		border-top: solid 3px red;
+		border-bottom: solid 1px lightgray;
+}
+footer div.damai_business ul:last-of-type li{
+		float: left;
+		padding: 5px 10px;
+}
+footer div.damai_business ul:last-of-type li+li:before{
+		content: "|";
+		padding-right: 10px;
+}
+footer div.damai_business ul:last-of-type li:first-child{
+		color: darkgray;
+		font-size: 12px;
+}
+footer div.copyright{
+		width: 1200px;
+		margin: 0 auto;
+}
+footer div.copyright div{
+		width: 100%;
+		text-align: center;
+}
+footer div.copyright div span{
+		font-size: 12px;
+		color: lightblue;
+		margin: 0 5px;
+}
+a:hover{
+		color: red;
+}
+/*footer 结束*/
+/*fixdiv 开始*/
+aside.fixDiv{
+		width: 40px;
+		height: 321px;
+		position: fixed;
+		right: 50px;
+		bottom: 100px;
+		border: solid 1px darkgray;
+		z-index: 1000;
+		display: none;
+}
+aside.fixDiv div{
+		height: 40px;
+		line-height: 13px;
+		text-align: center;
+		font-size: 12px;
+		background-color: white;
+		border-bottom: solid 1px darkgray;
+}
+aside.fixDiv div a{
+		display: block;
+		height: 100%;
+		padding: 5px;
+}
+aside.fixDiv div + div{
+	background: no-repeat;
+	background-image: url(../img/fixIMG.png);
+	color: rgba(255,255,255,0);
+		
+}
+aside.fixDiv div:hover{
+		background-color: red;
+		background-image: url();
+}
+aside.fixDiv div:hover a{
+	color: rgba(255,255,255,1) !important;
+	
+}
+aside.fixDiv div#fix-dm {
+	background-position: 8px 8px;
+	position: relative;
+}
+aside.fixDiv div#fix-xjdr {
+	background-position: 8px -102px;
+}
+aside.fixDiv div#fix-tyss {
+	background-position: 8px -282px;
+}
+aside.fixDiv div#fix-gdwd {
+	background-position: 8px -172px;
+}
+aside.fixDiv div#fix-etqz {
+	background-position: 8px -32px;
+}
+aside.fixDiv div#fix-ygyy {
+	background-position: 8px -138px;
+}
+aside.fixDiv div#fix-fhdb {
+	background-position: 8px -352px;
+}
+aside.fixDiv div:nth-of-type(1) a{
+		color: lightgray;
+}
+aside.fixDiv div#fix-dm span{
+		background-image: url(../img/dm-wx.png);
+		position: absolute;
+		width: 110px;
+		height: 110px;
+		left: -111px;
+		top: 0;
+		display: none;
+}
+aside.fixDiv div#fix-dm:hover span{
+		display: block;
+}
+/*fixdiv 结束*/
+/*清除浮动的样式*/
+.clearfloat:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	clear: both;
+}

@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" /><!--编码集在第一行声明-->
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/><!--使ie采用最新模式解析页面-->
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+		<meta name="generator" content="Hbuilder"/>
+		<title>慕课网首页--仿制</title>
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+		
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/CSS_Reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<!--[if lte ie 9]>
+			<p style="border:1px red solid;height:500px;background-color:gold;line-height:200px;color:white;font-size:50px;">您的浏览器过于老旧，无法支持网页内容，并且使用老旧浏览器会对您的计算机安全造成威胁。请到<a href="http://browsehappy.com">这里</a>更新最新的浏览器</p>
+		<![endif]-->
+		<header>
+			<nav>
+				<ul>
+					<a href="http://www.imooc.com">
+						<img src="img/logo.png" width="200" height="80" alt="慕课网imooc"/>
+					</a>
+				</ul>
+				<ul class="second">
+					<li>
+						<a href="javascript:void(0)">课程</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">职业路径</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">实战</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">猿问</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">手记</a>
+					</li>
+				</ul>
+				<ul class="third">
+					<li>
+						<div id="quick_search"><!--搜索默认-->
+							<a href="javascript:void(0)">前端小白</a>
+							<a href="javascript:void(0)">Java入门</a>
+						</div>
+						
+						<input type="search" name="" id="search_input" value="" />
+						<span class="icon-search search_btn"></span>
+					</li>
+					<li>
+						<a href="javascript:void(0)" id="shopping_cart">
+							<span class="icon-shopping-cart shopping_cart"></span> 
+							购物车
+						</a>
+						<div class="myCart" id="myCart">
+							<p>
+								<span>我的购物车</span>
+								<span>已加入<b id="course_count">0</b>门课程</span>
+							</p>
+							<p>
+								<span class="icon-shopping-cart"></span>
+								购物车里空空如也
+							</p>
+							<div>
+								<p>快去这里选购你中意的课程</p>
+								<p><a href="javascript:void(0)">实战课程</a></p>
+								<p><a href="javascript:void(0)">职业路径</a></p>
+							</div>
+							<p>
+								<span><a href="javascript:void(0)">我的订单中心</a></span>
+								<span><a href="javascript:void(0)">去购物车</a></span>
+							</p>
+						</div>
+					</li>
+					<li class="before_login">
+						<a href="javascript:void(0)" id="xiaoxi">
+							<span class="icon-bell-alt xiaoxi"></span>
+						</a>
+						<div id="login">
+							<a href="javascript:void(0)" class="login" id="login_btn">登录</a>
+						</div>
+					</li>
+					<li class="before_login">
+						<div id="after_login">
+							<a href="javascript:void(0)" id="myCenter"></a>
+							<div class="myCenter_box" id="myCenter_box">
+								<div class="head_area">
+									<span id="head"><a href="javascript:void(0)"></a></span>
+									<span id="name"><a href="javascript:void(0)">Jimory</a></span>
+									<span id="exp"><a href="javascript:void(0)">经验7,043</a></span>
+									<span id="integral"><a href="javascript:void(0)">积分7</a></span>
+								</div>
+								<ul class="my_link">
+									<li>
+										<a href="javascript:void(0)"><i class=" icon-book"></i>我的课程</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"><i class=" icon-list"></i>订单中心</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"><i class="icon-hospital"></i>积分商城</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"><i class=" icon-cog"></i>个人设置</a>
+									</li>
+								</ul>
+								<div class="learning">
+									<p><i class=" icon-time"></i> &nbsp;正在学习</p>
+									<p>
+										<span>课程名称</span>
+										<span id=""><a href="javascript:void(0)">继续</a></span>
+									</p>
+								</div>
+								<p><a href="javascript:void(0)" id="exitAccount">安全退出</a></p>
+							</div>
+						</div>
+						<div id="register">
+							<a href="javascript:void(0)" id="register_btn">注册</a>
+						</div>
+					</li>
+				</ul>
+				<div id="layer"></div>
+				<div id="login_center" class="center_login" >
+						<div class="header">
+							<span id="login_option" class="h_option">登录</span>
+							<span id="register_option" class="h_option">注册</span>
+							<span id="qrcode_option" class="h_option">二维码登录</span>
+							<span class="shutdown">
+								<a href="javascript:void(0)" id="shutdown_login">×</a>
+							</span>
+						</div>
+						<div class="content_option" id="login_content">
+							<form action="" method="post">
+								<p>
+									<input type="text" name="username" id="username" value="" placeholder="请输入登录邮箱/手机号"/>
+								</p>
+								<p>
+									<input type="password" name="pasw" id="pasw" value="" placeholder="6-16位密码，区分大小写，不能用空格"/>
+								</p>
+								<p>
+									<label for="autologin"><input type="checkbox" name="autologin" id="autologin" value="" />下次自动登录</label>
+									<a id="find_password" href="javascript:void(0)">
+										忘记密码
+									</a>
+								</p>
+								<p>
+									<input id="submit" type="submit" value="登录"/>
+								</p>
+								<p class="other_method">
+									<span>其他方式登录:</span>
+									<span id="qqlogin" class="qqlogin">
+										<a href="javascript:void(0)"></a>
+									</span>
+									<span id="wxlogin" class="wxlogin">
+										<a href="javascript:void(0)"></a>
+									</span>
+									<span id="wblogin" class="wblogin">
+										<a href="javascript:void(0)"></a>
+									</span>
+								</p>
+							</form>
+						</div>
+						<div class="content_option" id="register_content">
+							<form action="" method="post">
+								<p>
+									<input type="text" name="username" id="username" value="" placeholder="请输入注册邮箱手机号"/>
+								</p>
+								<p>
+									<input type="password" name="password" id="password" value="" placeholder="请输入验证码"/>
+								</p>
+								<p class="Captcha">
+									<span id="Captcha"></span>
+									<span id="refresh">
+										<a href="javascript:void(0)">点击刷新验证码</a>
+									</span>
+								</p>
+								<p>
+									<input type="submit" name="" id="" value="注册" />
+								</p>
+								<p class="other_method">
+									<span>其他方式登录:</span>
+									<span id="qqlogin" class="qqlogin">
+										<a href="javascript:void(0)"></a>
+									</span>
+									<span id="wxlogin" class="wxlogin">
+										<a href="javascript:void(0)"></a>
+									</span>
+									<span id="wblogin" class="wblogin">
+										<a href="javascript:void(0)"></a>
+									</span>
+								</p>
+							</form>
+						</div>
+						<div class="content_option" id="Captcha_content">
+							<canvas id="draw_Captcha" width="360px" height="360px"></canvas>
+							<p>扫描二维码登录慕课网</p>
+							<p>请使用新版<a href="javascript:void(0)">慕课网手机APP</a>扫码完成登录</p>
+						</div>	
+							
+				</div>
+				
+			</nav>
+			<ul id="search_history">
+				<li>搜索历史1</li>
+				<li>搜索历史2</li>
+				<li>搜索历史3</li>
+				<li>搜索历史4</li>
+				<li>搜索历史5</li>
+			</ul>
+		</header>
+		<!--主内容区域，包括banner区域 和 分类区域-->
+		<main>
+			<!--banner区域-->
+			<section class="banner_area" id="banner_area">
+				<!--banner 图-->
+				<div id="banner_img" class="banner_img">
+					<div class="banner">
+						<a href="javascript:void(0)"></a>
+					</div>
+					<div class="banner">
+						<a href="javascript:void(0)"></a>
+					</div>
+					<div class="banner">
+						<a href="javascript:void(0)"></a>
+					</div>
+					<div class="banner">
+						<a href="javascript:void(0)"></a>
+					</div>
+					<div class="banner">
+						<a href="javascript:void(0)"></a>
+					</div>
+					<div class="banner">
+						<a href="javascript:void(0)"></a>
+					</div>
+					<span id="turn_page_left" class="turn_page  icon-circle-arrow-left"></span>
+					<span id="turn_page_right" class="turn_page  icon-circle-arrow-right"></span>
+				</div>
+				<ul class="circle-point" id="circle-point">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<!--banner 分类目录-->
+				<aside class="catalog_area" id="catalog_area">
+					<div class="catalog_item d1">
+						<a href="javascript:void(0)"  class="a1">前端开发
+							<i class="icon-angle-right"></i>
+						</a>
+					</div>
+					<div class="catalog_item d2">
+						<a href="javascript:void(0)" class="a2">后端开发
+							<i class="icon-angle-right"></i>
+						</a>
+					</div>
+					<div class="catalog_item d3">
+						<a href="javascript:void(0)" class="a3">移动开发
+							<i class="icon-angle-right"></i>
+						</a>
+					</div>
+					<div class="catalog_item">
+						<a href="javascript:void(0)">数据库
+							<i class="icon-angle-right"></i>
+						</a>
+					</div>
+					<div class="catalog_item">
+						<a href="javascript:void(0)">云计算&大数据
+							<i class="icon-angle-right"></i>
+						</a>
+					</div>
+					<div class="catalog_item">
+						<a href="javascript:void(0)">运维&测试
+							<i class="icon-angle-right"></i>
+						</a>
+					</div>
+					<div class="catalog_item">
+						<a href="javascript:void(0)">UI设计
+							<i class="icon-angle-right"></i>
+						</a>
+					</div>
+					<!--分类内容区域-->
+					<div class="item_content content_1">
+						<h3>分类目录</h3>
+						<ul>
+							<li>基础 :</li>
+							<li>
+								<a href="javascript:void(0)">HTML/CSS</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">JavaScript</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">JQuery</a>
+							</li>
+						</ul>
+						<ul>
+							<li>进阶 :</li>
+							<li>
+								<a href="javascript:void(0)">Html5</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">CSS3</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Node.js</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">AngularJS</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Bootstrap</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">React</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Sass / Less</a>
+							</li>
+							<li class="vueJs">
+								<a href="javascript:void(0)">Vue.js</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">WebApp</a>
+							</li>
+						</ul>
+						<ul>
+							<li>其他 :</li>
+							<li>
+								<a href="javascript:void(0)">前端工具</a>
+							</li>
+						</ul>
+						<h3>课程推荐</h3>
+						<p>
+							<a href="javascript:void(0)">
+								<strong>职业路径</strong>前端小白入门手册
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<strong>职业路径</strong>HTML5与CSS3实现动态网页
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>Vue+Node+MongoDB高级全栈开发
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>Spring Boot微信点餐系统
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>IT菜鸟逆袭指南（江湖篇）
+							</a>
+						</p>
+					</div>
+					<div class="item_content content_2">
+						<h3>分类目录</h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)">PHP &nbsp;&nbsp;/</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Java</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Python</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">C</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">C++</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Go</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">C#</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Ruby</a>
+							</li>
+						</ul>
+						<h3>课程推荐</h3>
+						<p>
+							<a href="javascript:void(0)">
+								<strong>职业路径</strong>PHP从基础语法到原生项目开发
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<strong>职业路径</strong>Java基础语法与常用工具类
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>Spring Boot微信点餐系统
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>python操作三大主流数据库 项目实战
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Java入门第二季
+							</a>
+						</p>
+					</div>
+					<div class="item_content content_3">
+						<h3>分类目录</h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)">Android &nbsp;&nbsp;/</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">iOS</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Unity 3D</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Cocos2d-x</a>
+							</li>
+						</ul>
+						<h3>课程推荐</h3>
+						<p>
+							<a href="javascript:void(0)">
+								<strong>职业路径</strong>iOS界面优化与数据存储
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<strong>职业路径</strong>Android网络与数据存储
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>Android通用框架设计与完整电商APP开发
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Kotlin系统入门与进阶
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Swift-进入OOP时代
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Android攻城狮的第二门课（第1季）
+							</a>
+						</p>
+					</div>
+					<div class="item_content content_4">
+						<h3>分类目录</h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)">MySQL &nbsp;&nbsp;/</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">MongoDB</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Oracle</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">SQL Server</a>
+							</li>
+						</ul>
+						<h3>课程推荐</h3>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>python操作三大主流数据库 项目实战
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>Spring Boot微信点餐系统
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>MongoDB 在线讲座之如何测试、调整及监控MongoDB性能
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>MongoDB中文社区-北京专场（二）
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Oracle数据库开发必备利器之SQL基础
+							</a>
+						</p>
+					</div>
+					<div class="item_content content_5">
+						<h3>分类目录</h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)">大数据 &nbsp;&nbsp;/</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">云计算</a>
+							</li>
+						</ul>
+						<h3>课程推荐</h3>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>大数据Spark SQL慕课网日志分析
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>R语言入门
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>初识机器学习-理论篇
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>在线分布式数据库原理与实践
+							</a>
+						</p>
+					</div>
+					<div class="item_content content_6">
+						<h3>分类目录</h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)">测试 &nbsp;&nbsp;/</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Linux</a>
+							</li>
+						</ul>
+						<h3>课程推荐</h3>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>Spring Boot微信点餐系统
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>实战</span>Android自动化测试实战-Java篇 主流工具 框架 脚本
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Linux达人养成计划 I
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>shell编程之环境变量配置文件
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>vagrant打造跨平台可移动的开发环境
+							</a>
+						</p>
+					</div>
+					<div class="item_content content_7">
+						<h3>分类目录</h3>
+						<ul>
+							<li>
+								<a href="javascript:void(0)">动画动效 &nbsp;&nbsp;/</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">APPUI设计</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">设计工具</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">设计基础</a>
+							</li>
+						</ul>
+						<h3>课程推荐</h3>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Web UI设计理论入门
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>Axure入门初体验
+							</a>
+						</p>
+						<p>
+							<a href="javascript:void(0)">
+								<span>课程</span>“Doge”变身术
+							</a>
+						</p>
+					</div>
+				</aside>
+				<!--banner 分类目录 结束-->
+					
+				<!--banner 底部区域-->
+				<ul class="banner_bottom">
+					<li>
+						<a href="javascript:void(0)"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)"></a>
+					</li>
+				</ul>
+			</section>
+			<!--banner区域 结束-->
+			
+			<!--分类区域-->
+			<section class="module_5div module_div"><!--实战推荐-->
+				<header>
+					<strong>实战推荐</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;Java Android</header>
+							<div class="show_content">
+								<h3>BAT大咖助力 全面升级Android面试</h3>
+								<p>2017最全面的Android面试课程，赢取称心offer的不二之选</p>
+								<div>
+									<span>696人在学</span>
+									<span>￥288.00</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;JavaScipt</header>
+							<div class="show_content">
+								<h3>前端JavaScript面试技巧</h3>
+								<p>百度高级前端工程师亲授，结合真实面试题，提高面试成功几率</p>
+								<div>
+									<span>3000人在学</span>
+									<span>￥149.00</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Android</header>
+							<div class="show_content">
+								<h3>Android通用框架设计与完整电商APP开发</h3>
+								<p>从第一行代码开始教你，通用且一键式配置的框架设计，实现完整APP...</p>
+								<div>
+									<span>60人在学</span>
+									<span>￥348.00</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;Java Pathon 大数据 </header>
+							<div class="show_content">
+								<h3>大数据Spark SQL慕课网日志分析</h3>
+								<p>轻松转型大数据：Hadoop，Hive，SparkSQL步步为赢</p>
+								<div>
+									<span>101人在学</span>
+									<span>￥366.00</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;Node.js MongoDB </header>
+							<div class="show_content">
+								<h3>Vue2.0+Node.js+MongoDB全栈打造商城系统</h3>
+								<p>从前端入门全栈，让你的未来更宽广</p>
+								<div>
+									<span>101人在学</span>
+									<span>￥366.00</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			</section>
+			<section class="module_5div module_div contain_new"><!--免费好课-->
+				<header>
+					<strong>免费好课</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<img src="img/new_icon.png" width="44" width="24"/>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;Java</header>
+							<div class="show_content">
+								<h3>Java消息中间件</h3>
+								<p>使用Java消息中间件处理异步消息</p>
+								<div>
+									<span>高级·102人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<img src="img/new_icon.png" width="44" width="24"/>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;设计基础</header>
+							<div class="show_content">
+								<h3>UI入门小锦囊</h3>
+								<p>成为UI设计师的正确打开方式？</p>
+								<div>
+									<span>初级·866人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<img src="img/new_icon.png" width="44" width="24"/>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;Android</header>
+							<div class="show_content">
+								<h3>Android常用异常集及解决方案</h3>
+								<p>介绍Android常用异常集及常用的几种解决方案</p>
+								<div>
+									<span>初级·820人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<img src="img/new_icon.png" width="44" width="24"/>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;设计基础 </header>
+							<div class="show_content">
+								<h3>基础线性和剪影化icon的制作方法</h3>
+								<p>刚接触UI的小伙伴们从哪里作为切入点？UI设计icon制作必备技能</p>
+								<div>
+									<span>中级·2212人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<img src="img/new_icon.png" width="44" width="24"/>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;PHP</header>
+							<div class="show_content">
+								<h3>PHP消息队列实现及应用</h3>
+								<p>消息队列是个什么玩意儿，使用队列解决秒杀等实际问题概念和使用方法</p>
+								<div>
+									<span>高级·3035人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				<article>
+			</section>
+			<section class="module_prediv module_div"><!--前端开发工程师-->
+				<header>
+					<strong>前端开发工程师</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<div class="vertical_div">
+					<a href="javascript:void(0)">
+						<header><i class="icon-linkedin-sign"></i> &nbsp;职业路径</header>
+						<h1>前端进阶：响应式开发与常用框架</h1>
+						<span>了解详情 &nbsp;<i class="icon-arrow-right"></i></span>
+					</a>
+					<ul>
+						<li>
+							<a href="javascript:void(0)">· HTML5与CSS3实现动态网页</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">· 前端小白入门</a>
+						</li>
+					</ul>
+				</div>
+				<div class="thwartwise_div"><!--横着的短div-->
+					<a href="javascript:void(0)"></a>
+				</div>
+				<div class="thwartwise_div"><!--横着的短div-->
+					<a href="javascript:void(0)"></a>
+				</div>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;JQuery</header>
+							<div class="show_content">
+								<h3>jQuery基础(四)—动画篇</h3>
+								<p>jQuery基础教程动画篇，讲解jQuery基础开启动画修炼</p>
+								<div>
+									<span>初级·60941人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;HTML/CSS &nbsp;&nbsp; JavaScript</header>
+							<div class="show_content">
+								<h3>Web安全-XSS</h3>
+								<p>从Web安全XSS的定义开始讲起，从原理到实战全方位理解XSS安全</p>
+								<div>
+									<span>初级·18381人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;AngularJS</header>
+							<div class="show_content">
+								<h3>Angular2一小时快速入门</h3>
+								<p>Angular2一小时快速入门教程，帮助大家快速上手Angular2开发</p>
+								<div>
+									<span>中级·25995人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Node.js</header>
+							<div class="show_content">
+								<h3>去哪儿前端沙龙分享第三期</h3>
+								<p>本课程为去哪儿网前端交互沙龙第三期，精彩分享不容错过噢</p>
+								<div>
+									<span>高级·24236人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			</section>
+			<section class="module_PHPdiv module_div"><!--PHP开发工程师-->
+				<header>
+					<strong>PHP开发工程师</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<div class="vertical_div">
+					<a href="javascript:void(0)">
+						<header><i class="icon-linkedin-sign"></i> &nbsp;职业路径</header>
+						<h1>前端进阶：响应式开发与常用框架</h1>
+						<span>了解详情 &nbsp;<i class="icon-arrow-right"></i></span>
+					</a>
+					<ul>
+						<li>
+							<a href="javascript:void(0)">· HTML5与CSS3实现动态网页</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">· 前端小白入门</a>
+						</li>
+					</ul>
+				</div>
+				<div class="thwartwise_div_long"><!--横着的长div-->
+					<a href="javascript:void(0)"></a>
+				</div>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;PHP</header>
+							<div class="show_content">
+								<h3>PHP中的HTTP协议</h3>
+								<p>PHP视频教程从PHP的角度深度解析HTTP协议知识，例如post、和get请求</p>
+								<div>
+									<span>初级·17699人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;PHP</header>
+							<div class="show_content">
+								<h3>PHP+AJAX实现表格实时编辑</h3>
+								<p>PHP和AJAX实现表格动态实时编辑案例，轻松实现最好的用户体验</p>
+								<div>
+									<span>中级·18381人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+				<a href="javascript:void(0)">
+					<div class="show_div  square_div">
+						<header><i class="icon-fire"></i>&nbsp;PHP</header>
+						<div class="show_content">
+							<h3>大型PHP电商网站商品秒杀功能实现思路分析</h3>
+							<p>本课程属于PHP高级教程，汇集前沿技术，实现商品秒杀，小白慎入		</p>
+							<div>
+								<span>中级·25995人在学</span>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;PHP</header>
+							<div class="show_content">
+								<h3>从零开始打造自己的PHP框架</h3>
+								<p>和我一起开发一套属于自己的PHP框架，自己开发的才是最好用的</p>
+								<div>
+									<span>高级·24236人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			</section>
+			<section class="module_Androiddiv module_div"><!--Android开发工程师-->
+				<header>
+					<strong>Android开发工程师</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<div class="vertical_div">
+					<a href="javascript:void(0)">
+						<header><i class="icon-linkedin-sign"></i> &nbsp;职业路径</header>
+						<h1>Android强化：服务与通信</h1>
+						<span>了解详情 &nbsp;<i class="icon-arrow-right"></i></span>
+					</a>
+					<ul>
+						<li>
+							<a href="javascript:void(0)">· 零基础入门Android语法与界面</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">· Android进阶：网络与数据存储</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">· Android从界面到数据存储</a>
+						</li>
+					</ul>
+				</div>
+				<div class="thwartwise_div"><!--横着的短div-->
+					<a href="javascript:void(0)"></a>
+				</div>
+				<div class="thwartwise_div"><!--横着的短div-->
+					<a href="javascript:void(0)"></a>
+				</div>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Android &nbsp;React.JS</header>
+							<div class="show_content">
+								<h3>ReactNative基础与入门</h3>
+								<p>敲开React Native的大门,掌握未来趋势新技术</p>
+								<div>
+									<span>初级·21759人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Android</header>
+							<div class="show_content">
+								<h3>不一样的自定义实现轮播图效果</h3>
+								<p>Android开发自定义实现轮播图效果案例实现，从无到有让你会懂会用</p>
+								<div>
+									<span>中级·8578人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Android</header>
+							<div class="show_content">
+								<h3>带你实现别样的Android侧滑菜单</h3>
+								<p>学会熟练使用侧滑菜单之DrawerL，介绍常用菜单开源库SlidingMenu</p>
+								<div>
+									<span>中级·7907人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Android</header>
+							<div class="show_content">
+								<h3>Android网络框架-OkHttp使用</h3>
+								<p>本视频教程主要讲解Android SDK 6.0之后网络请求框架，赶快学起来吧</p>
+								<div>
+									<span>高级·11432人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			</section>
+			<section class="module_IOSdiv module_div"><!--iOS开发工程师-->
+				<header>
+					<strong>iOS开发工程师</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<div class="vertical_div vertical_div_short iosFloat" >
+					<a href="javascript:void(0)">
+						<header><i class="icon-linkedin-sign"></i> &nbsp;职业路径</header>
+						<h1>iOS进阶：界面优化与数据存储</h1>
+						<span>了解详情 &nbsp;<i class="icon-arrow-right"></i></span>
+					</a>
+					<ul>
+						<li>
+							<a href="javascript:void(0)">· iOS入门：基础语法与常用控件</a>
+						</li>
+					</ul>
+				</div>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;iOS</header>
+							<div class="show_content">
+								<h3>iOS架构初探</h3>
+								<p>iOS视频教程教你轻松搞定各种架构设计模式的学习，如MVC、MVVM等</p>
+								<div>
+									<span>初级·13737人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;iOS</header>
+							<div class="show_content">
+								<h3>iOS快速构建IM功能</h3>
+								<p>本视频教程将告诉大家在iOS开发中如何快速构建一个IM功能</p>
+								<div>
+									<span>中级·5001人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;iOS</header>
+							<div class="show_content">
+								<h3>iOS基础之UIImageView知识拓展(上)</h3>
+								<p>掌握iOS图像处理之UIImage展示，了解UIImageView更多的用途</p>
+								<div>
+									<span>初级·6888人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;iOS</header>
+							<div class="show_content">
+								<h3>玩儿转Swift 2.0（第四季）</h3>
+								<p>Swift泛型、扩展、面向协议编程等，大家真正玩儿转swift</p>
+								<div>
+									<span>高级·11488人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			
+			
+				
+			</section>
+			<section class="module_JAVAdiv module_div"><!--JAVA开发工程师-->
+				<header>
+					<strong>JAVA开发工程师</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<div class="vertical_div vertical_div_short iosFloat" >
+					<a href="javascript:void(0)">
+						<header><i class="icon-linkedin-sign"></i> &nbsp;职业路径</header>
+						<h1>Java零基础入门</h1>
+						<span>了解详情 &nbsp;<i class="icon-arrow-right"></i></span>
+					</a>
+					<ul>
+						<li>
+							<a href="javascript:void(0)">· JAVA精通之路</a>
+						</li>
+					</ul>
+				</div>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;JAVA</header>
+							<div class="show_content">
+								<h3>Java Spring技术栈构建完整前后台团购网站 </h3>
+								<p>完整的前后台团购网站，提升实战技能与高效编程技巧</p>
+								<div>
+									<span>737人在学</span>
+									<span>￥388.00</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;JAVA</header>
+							<div class="show_content">
+								<h3>轻松愉快之玩转SpringData</h3>
+								<p>利用Spring Data提高开发效率，提升程序员的幸福指数</p>
+								<div>
+									<span>中级·5001人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;JAVA</header>
+							<div class="show_content">
+								<h3>Java模板引擎之Freemarker(上)</h3>
+								<p>学习Java模板引擎中Freemarker技术，web开发人员必要掌握的技术之一</p>
+								<div>
+									<span>初级·6888人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;JAVA</header>
+							<div class="show_content">
+								<h3>JAVA生成二维码</h3>
+								<p>二维码无处不在，自己动手用Java生成二维码，三种生成方式任你选</p>
+								<div>
+									<span>中级·54988人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			
+			
+				
+			</section>
+			<section class="module_Pythondiv module_div"><!--Python开发工程师-->
+				<header>
+					<strong>Python开发工程师</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<div class="vertical_div vertical_div_short iosFloat" >
+					<a href="javascript:void(0)">
+						<header></header>
+						<h1></h1>
+						<span></span>
+					</a>
+					<ul>
+						<li>
+							<a href="javascript:void(0)">· Python精通之路</a>
+						</li>
+					</ul>
+				</div>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Python</header>
+							<div class="show_content">
+								<h3>Python分布式爬虫打造搜索引擎 Scrapy精讲 </h3>
+								<p>彻底掌握Scrapy原理，Django+Elasticsearch搭建搜索引擎</p>
+								<div>
+									<span>737人在学</span>
+									<span>￥388.00</span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Python</header>
+							<div class="show_content">
+								<h3>django入门与实践</h3>
+								<p>手把手带你进入Django开发的大门，充分领略Django的魅力</p>
+								<div>
+									<span>初级·20388人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Python</header>
+							<div class="show_content">
+								<h3>python-web.py开发入门</h3>
+								<p>web.py开发入门入门教程，讲解一个你最快能学会的web开发的框架</p>
+								<div>
+									<span>初级·26888人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article class="iosFloat">
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Python</header>
+							<div class="show_content">
+								<h3>Python开发简单爬虫</h3>
+								<p>本教程带您解开python爬虫这门神奇技术的面纱</p>
+								<div>
+									<span>高级·115988人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			
+			
+				
+			</section>
+			<section class="module_5div module_div"><!--Linux系统工程师-->
+				<header>
+					<strong>Linux系统工程师</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;测试</header>
+							<div class="show_content">
+								<h3>自动化测试之selenium工具使用</h3>
+								<p>web自动化测试selenium从0基础开始。</p>
+								<div>
+									<span>初级·13488人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Linux</header>
+							<div class="show_content">
+								<h3>Linux软件安装管理</h3>
+								<p>通过本课程了解Linux中的软件如何进行安装、卸载、升级等管理</p>
+								<div>
+									<span>中级·53488人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div  square_div">
+							<header><i class="icon-fire"></i>&nbsp;Linux</header>
+							<div class="show_content">
+								<h3>Linux系统扫描技术及安全防范</h3>
+								<p>Linux系统下系统扫描及安全防范，规避一些安全的隐患</p>
+								<div>
+									<span>中级·23488人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;Linux</header>
+							<div class="show_content">
+								<h3>Linux Bind负载均衡</h3>
+								<p>DNS转发、主从模式及传输限制，通过本课了解更多DNS知识</p>
+								<div>
+									<span>高级·9088人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+				<article>
+					<a href="javascript:void(0)">
+						<div class="show_div square_div">
+							<header><i class="icon-fire"></i>&nbsp;Linux</header>
+							<div class="show_content">
+								<h3>Shell典型应用之应用日志分析</h3>
+								<p>如何应用shell脚本分析系统日志，这门视频教程会给你答案</p>
+								<div>
+									<span>高级·22888人在学</span>
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</article>
+			</section>
+			<section class="community"><!--社区-->
+				<aside class="left">
+					<p>热门手记</p>
+					<div>
+						<header>XSS 和 CSRF 攻击的一些非常规防御方法</header>
+						<ul class="contain">
+							<li>
+								<a href="javascript:void(0)">测试</a>
+								<a href="javascript:void(0)">web自动化测试从入门到持续集成</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">JAVA</a>
+								<a href="javascript:void(0)">单Activity架构，丝滑般享受</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">JAVA</a>
+								<a href="javascript:void(0)">大数据框架Hadoop主要模块介绍</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Python</a>
+								<a href="javascript:void(0)">写给前端看 Django 教程</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">产品</a>
+								<a href="javascript:void(0)">REST与RESTFul API最佳实践</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Python</a>
+								<a href="javascript:void(0)">Linux 进程管理工具：supervisor</a>
+							</li>
+						</ul>
+						<footer>
+							<a href="javascript:void(0)">
+								进入手记获取更多 &nbsp;<i class="icon-arrow-right"></i>
+							</a>
+						</footer>
+					</div>
+				</aside>
+				<aside class="right">
+					<p>推荐猿问</p>
+					<div>
+						<header>【花式填坑第12期】恕我直言，你们真的懂Java框架吗？</header>
+						<ul class="contain">
+							<li>
+								<a href="javascript:void(0)">Photoshop</a>
+								<a href="javascript:void(0)">有没有大神 一个什么都不懂的 很想了解 可以详聊么						</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">JAVA</a>
+								<a href="javascript:void(0)">各位大神老师们</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Android</a>
+								<a href="javascript:void(0)">R是怎么回事</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Javascript</a>
+								<a href="javascript:void(0)">better-scroll + fastclick 轮播图...</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Android</a>
+								<a href="javascript:void(0)">上一个问题的手尾，虽然消了一个红色的小红叉，但...</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">JAVA</a>
+								<a href="javascript:void(0)">为什么输出内容中还是包含小于0和大于100的数呢？</a>
+							</li>
+						</ul>
+						<footer>
+							<a href="javascript:void(0)">
+								进入猿问获取更多 &nbsp;<i class="icon-arrow-right"></i>
+							</a>
+						</footer>
+					</div>
+				</aside>
+			</section>
+			<section class="module_div teacher"><!--名师推荐-->
+				<header>
+					<strong>慕课精英名师推荐</strong>
+					<span><a href="javascript:void(0)">更多 ></a></span>
+				</header>
+				<ul>
+					<li>
+						<a href="javascript:void(0)">
+							<img src="img/ms-1.jpg" width="120" height="120" alt="杨帆远航"/>
+							<p class="name">扬帆远航</p>
+							<p>数据科学家</p>
+							<p>拥有多年带领华为数据挖掘团队给全世界范围内著名运营商提供大数据解决方案的经验，工作中所带领的团队主要负责处理、挖掘和分析每天数以TB计的数据。作为一个带领拥有20人团队成功完成多个全球项目的leader,非常了解当今用途最广泛的数据挖掘、机器学习和数理统计方法,同时有着多年熟练应用各种数据挖掘平台工具和数理统计包(例如R,python和Spark)经验。
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<img src="img/ms-2.jpg" width="120" height="120" alt="杨帆远航"/>
+							<p class="name">编_程_浪_子</p>
+							<p>PHP开发工程师</p>
+							<p>互联网搬砖小王子，从事互联网web 开发6年，热爱搬砖行业，有代码洁癖，对PHP，Python，Java都有涉猎， 实践经验丰富，富有激情，热爱分享，乐观开朗，喜欢专研新技术
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<img src="img/ms-3.jpg" width="120" height="120" alt="杨帆远航"/>
+							<p class="name">DocMike</p>
+							<p>移动开发工程师</p>
+							<p>安卓工程师  多年开发和带团队经验，曾在BAT等多家一线互联网公司就职，P大硕士毕业，应届生导师、校招、社招面试官，主导与开发过多款知名的互联网金融、免费国际电话、外卖等项目的架构与开发
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<img src="img/ms-4.jpg" width="120" height="120" alt="杨帆远航"/>
+							<p class="name">ustbhuangyi</p>
+							<p>滴滴前端技术专家</p>
+							<p>北京科技大学计算机专业硕士。曾任职百度，现就职滴滴，前端技术专家。对Vue.js有很深的理解，是《Vue.js权威指南》一书的主要作者。他有着教科书式的代码写作习惯，对代码有洁癖，追求高质量的代码。强化提升编写高可扩展，通用性强的代码的能力
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<img src="img/ms-5.jpg" width="120" height="120" alt="杨帆远航"/>
+							<p class="name">快乐动起来呀</p>
+							<p>Web前端工程师</p>
+							<p>先后在360、去哪儿网、今日头条任资深前端工程师，在业务开发和工程架构方面有较多实战经验。
+							</p>
+						</a>
+					</li>
+					<!--<div style="clear: both;"></div>-->
+				</ul>
+			</section>
+		</main>
+		
+		<footer>
+			<div>
+				<a href="javascript:void(0)"></a>
+				<a href="javascript:void(0)"></a>
+				<a class="qr_code"></a>
+				<a href="javascript:void(0)"></a>
+				<a href="javascript:void(0)"></a>
+			</div>
+			<p>
+				<span>
+					<a href="javascript:void(0)">企业合作</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">人才招聘</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">联系我们</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">讲师招募</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">常见问题</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">意见反馈</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">慕课大学</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">友情链接</a>
+				</span>
+			</p>
+			<p>© 2017 imooc.com  京ICP备 13046642号-2</p>
+		</footer>
+		
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>

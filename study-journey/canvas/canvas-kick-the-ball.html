@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="无知的少年"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<meta name="generator" content="HBuilder"/>
+		<title></title>
+		<style type="text/css">
+			/*默认样式-start*/
+			*{
+					margin: 0px;
+					padding: 0px;
+					font-family: "微软雅黑";
+					font-size: 14px;
+			}
+			a{
+					text-decoration: none;
+					
+			}
+			li{
+					list-style: none;
+			}
+			/*end-默认样式*/
+			img:first-of-type{
+					position: relative;
+					top: -160px;
+					left: 20px;
+			}
+			span{
+					position: relative;
+					left: 330px;
+					top: -450px;
+					display: inline-block;
+					width: 1000px;
+					font-size: 60px;
+			}
+			#img{
+					transform: rotateZ(90deg);
+					transform-origin: left bottom ;
+					position: relative;
+					top: -200px;
+					left: -100px;
+					animation: kick 0.5s 2.2s ease-in;
+					animation-fill-mode: both;
+			}
+			@keyframes kick{
+				0%{
+					transform: rotateZ(80deg);
+				}
+				50%{
+					transform: rotateZ(20deg) ;
+				}
+				100%{
+					transform: rotateZ(120deg)   ;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+		<canvas id="ball" width="1000" height="600" ></canvas>
+		<img src="img/3.png"/>
+		
+		<img id="img" src="img/tui-2.gif"/>
+		<span id="">
+			再@老子,就拿你的脑袋当球踢
+		</span>
+		<script type="text/javascript">
+			var canvas = document.getElementById("ball");
+			var context = canvas.getContext("2d");
+			
+			var positionData = {x:100,y:100,vx:15,vy:10,vAdd:2,};//定义ball的位置变化参数
+			var color = ["red","blue","green","yellow","aqua"];
+			
+			function renderBall (x,y,radius) {//绘制小球
+				context.clearRect(0,0,1000,600)
+				
+				context.beginPath();
+				context.fillStyle = color[Math.floor(Math.random()*color.length)];
+				context.arc(x,y,radius,0,6.28);
+				context.closePath();
+				context.fill();
+				
+			};
+			function drawHead (x,y) {
+				context.clearRect(0,0,1000,600);
+				
+				context.beginPath();
+				
+				var img=new Image()
+				img.src="img/1.555.png"
+				context.drawImage(img,x,y);
+				context.closePath();
+			};
+			setInterval(function(){
+				
+				//renderBall(positionData.x,positionData.y,20);
+				drawHead (positionData.x,positionData.y)
+				
+				positionData.x += positionData.vx;
+				positionData.y += positionData.vy;
+				positionData.vy += positionData.vAdd;
+				positionData.vx += 0
+				if (positionData.y > 600-125) {
+					positionData.y =600-125;
+					positionData.vy *= -0.5;
+				}
+				if (positionData.x > 1000-130 ) {
+					positionData.x = 1000-130;
+					positionData.vx *=-4;
+					positionData.vy = -100;
+					positionData.vx = -200;
+					positionData.vAdd = 0;
+				}
+				if (positionData.x <0 ) {
+					window.location.assign(window.location.pathname)
+				}
+			},50)
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

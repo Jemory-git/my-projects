@@ -1,0 +1,751 @@
+/*定义通用样式*/
+.clearFloat:before,
+.clearFloat:after{
+		content: " ";
+		display: table;
+}
+.clearFloat:after{
+		clear: both;
+		overflow: hidden;
+}
+/*初始化样式*/
+*{
+		box-sizing: border-box;
+		font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial";
+}
+/*body{
+		width: 100%;
+		height: 100%;
+}*/
+ul,li{
+		margin: 0;
+		padding: 0;
+}
+li{
+		list-style: none;
+}
+a{
+		text-decoration: none;
+		color: inherit;
+}
+a:hover{
+		color: red;
+}
+img{
+		border: none;
+}
+p,h1,h2,h3,h4,h5,h6,figure{
+		margin: 0;
+		padding: 0;
+}
+input{
+		border: none;
+		outline: none;
+}
+/*header 开始*/
+header{
+		width: 100%;
+		height: 48px;
+		background-color: #000;
+}
+/*导航条 开始*/
+header nav{
+		width: 100%;
+		height: 100%;
+		position: relative;
+}
+header nav ul li{
+		color: white;
+		position: relative;
+}
+header nav ul.transverse{
+		height: 100%;
+		margin: 0 auto;
+		background-color: black;
+		display: none;
+		position: relative;
+		z-index: 1200;
+}
+header nav ul.vertical{
+		height: 100%;
+		width: 100%;
+		margin: 0 auto;
+		background-color: black;
+		position: relative;
+		z-index: 1200;
+}
+header nav ul.vertical li{
+		float: left;
+		height: 100%;
+		line-height: 48px;
+		width: 33.3333333%;
+}
+.triangle{
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 33px;
+		display: none;
+}
+@media only screen and (min-width: 768px) {
+	.triangle{
+			right: 50%;
+			transform: translateX(50%);
+			-webkit-transform: translateX(50%);
+	}
+}
+@media only screen and (max-width: 767px) {
+	.triangle{
+			right: 13px;
+	}
+}
+.triangle img{
+		vertical-align: top;
+}
+header nav ul.vertical li.fold{
+		text-align: left;
+		padding-left: 15px;
+}
+header nav ul.vertical li.home{
+		text-align: center;
+}
+header nav ul.vertical li.home a img{
+		vertical-align: middle;
+}
+header nav ul.vertical li.shopping-bag{
+		text-align: right;
+		padding-right: 15px;
+}
+@media only screen and (max-width: 767px) {
+		header nav ul.transverse{
+				display: none;
+		}
+		header nav ul.vertical{
+				display: block;
+		}
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+		header nav ul.transverse{
+				width: 100%;
+		}
+		header nav ul.transverse{
+				display: block;
+		}
+		header nav ul.vertical{
+				display: none;
+		}
+}
+@media only screen and (min-width: 1024px){
+		header nav ul.transverse{
+			width: 80%;
+			min-width: 1024px;
+		}
+		header nav ul.transverse{
+				display: block;
+		}
+		header nav ul.vertical{
+				display: none;
+		}
+}
+header nav ul.transverse li{
+		width: 11.111111111%;
+		height: 100%;
+		float: left;
+		color: white;
+}
+a.scale0{
+		transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+}
+header nav ul.transverse li.search-li{
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60%;
+		background-color: black;
+		display: none;
+}
+	@media only screen and (min-width: 768px) {
+		li.search-li{
+				left: 150%;
+				opacity: 0;
+		}
+	}
+header nav ul.transverse li a{
+		display: block;
+		width: 100%;
+		height: 100%;
+		line-height: 48px;
+		text-align: center;
+}
+header nav ul.transverse li a:nth-last-of-type(2){
+		cursor: default;
+}
+header nav ul.transverse li a:nth-last-of-type(2) span{
+		cursor: pointer;
+}
+header nav ul.transverse li a.appleHome img{
+		vertical-align: middle;
+}
+/*导航条 结束*/
+
+/*折叠的产品列表 开始*/
+header nav ul.fold-product-list{
+		/*height: 100%;*/
+		min-height: 300px;
+		width: 100%;
+		margin: 0 auto;
+		position: absolute;
+		left: 0;
+		top: 48px;
+		background-color: #000;
+		padding: 0 40px;
+		display: none;
+		z-index: 1100;
+		transition: transform 0.3s cubic-bezier(0,0,0.7,0.8);
+		-webkit-transition: -webkit-transform 0.3s cubic-bezier(0,0,0.7,0.8);
+}
+header nav ul.fold-product-list li{
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		border-bottom: solid 1px #555;
+}
+input.searchInput{
+		height: 95%;
+		width: 90%;
+		border: none;
+		outline: none;
+		padding-left: 5px;
+		color: white;
+		background-color: black;
+}
+header nav ul.fold-product-list.translatey{
+		transform: translateY(-240px);
+		-webkit-transform: translateY(-240px);
+}
+/*折叠的产品列表 结束*/
+
+/*快速搜索 开始*/
+header nav div.quickSearch{
+		position: absolute;
+		left: 0;
+		z-index: 1100;
+		padding: 0 40px;
+		display: none;
+		background-color: black;
+		overflow: hidden;
+}
+	@media only screen and (max-width: 767px) {
+		header nav div.quickSearch{
+				top: 100px;
+				width: 100%;
+		}
+	}
+	@media only screen and (min-width: 768px) {
+		header nav div.quickSearch{
+				top: 48px;
+				width: 60%;
+				margin: 0 20%;
+		}
+		.quickSearch-item{
+				left: 1000px;
+				opacity: 0;
+		}
+	}
+header nav div.quickSearch p{
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		font-size: 12px;
+		color: #888;
+		margin: 0;
+		padding: 10px 0 5px 0;
+}
+header nav div.quickSearch ul{
+		width: 85%;
+		margin: 0 auto;
+}
+header nav div.quickSearch ul li+li{
+		height: 40px;
+		line-height: 40px;
+		border-bottom: solid 1px #555;
+}
+header nav div.quickSearch ul li:first-of-type{
+		color: #999;
+		font-size: 12px;
+		margin: 5px 0 10px 0;
+}
+/*快速搜索 结束*/
+
+/*购物袋列表 开始*/
+header nav aside.shopping-bag-list{
+		width: 25%;
+		min-width: 200px;
+		background-color: white;
+		border-radius: 5px;
+		position: absolute;
+		right: 1px;
+		z-index: 1001;
+		display: none;
+}
+@media only screen and (min-width: 768px){
+	header nav aside.shopping-bag-list{
+		right: 3%;
+	}
+}
+header nav aside.shopping-bag-list p{
+		color: darkgray;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+}
+header nav aside.shopping-bag-list ul li{
+		color: cornflowerblue;
+		font-weight: 100;
+		width: 80%;
+		height: 40px;
+		line-height: 40px;
+		margin: 0 auto;
+		border-bottom: solid 1px #eee;
+}
+/*购物袋列表 结束*/
+
+/*header 结束*/
+
+/*main 开始*/
+main{
+		width: 100%;
+		height: 90%;
+		overflow: hidden;
+		position: relative;
+}
+	/*banner图 区域 开始*/
+main section.banner-area{
+		width: 100%;
+		height: 100%;
+		position: relative;
+}
+main section.banner-area div.banner{
+		width: 100%;
+		height: 100%;
+		position: relative;
+}
+main section.banner-area div.banner div.banner-img{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+}
+main section.banner-area div.banner div.banner-img:nth-of-type(2),main section.banner-area div.banner div.banner-img:nth-of-type(3){
+		left: 100%;
+}
+
+main section.banner-area div.banner div.banner-img a{
+		width: 100%;
+		height: 100%;
+		display: block;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-origin: border-box;
+		background-size: 100% 100%;
+}
+@media only screen and (min-width: 1024px) {
+	main section.banner-area div.banner div.banner-img:nth-of-type(1) a{
+			background-image: url(../img/homePage/large/iphone_7_large_2x.jpg);
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(2) a{
+			background-image: url(../img/homePage/large/hero_large_2x.jpg);
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(3) a{
+			background-image: url(../img/homePage/large/watch_large_2x.jpg);
+	}
+	
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+	main section.banner-area div.banner div.banner-img:nth-of-type(1) a{
+			background-image: url(../img/homePage/medium/iphone_7_medium_2x.jpg);
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(2) a{
+			background-image: url(../img/homePage/medium/hero_medium_2x.jpg);
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(3) a{
+			background-image: url(../img/homePage/medium/watch_medium_2x.jpg);
+	}
+	
+}
+@media only screen and (max-width: 767px) {
+	main section.banner-area div.banner div.banner-img:nth-of-type(1) a{
+			background-image: url(../img/homePage/small/iphone_7_small_2x.jpg);
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(2) a{
+			background-image: url(../img/homePage/small/hero_small_2x.jpg);
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(3) a{
+			background-image: url(../img/homePage/small/watch_small_2x.jpg);
+	}
+	
+}
+main section.banner-area div.banner div.banner-img a p{
+		width: 100%;
+		height: 200px;
+		color: white;
+		text-align: center;
+		padding-top: 30px;
+		font-weight: 100;
+}
+main section.banner-area div.banner div.banner-img:nth-of-type(3) a p{
+		color: black;
+}
+@media only screen and (min-width: 1024px) {
+	main section.banner-area div.banner div.banner-img a p{
+			font-size: 40px;
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(3) a p img{
+			width: 40px;
+			height: 50px;
+	}
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+	main section.banner-area div.banner div.banner-img a p{
+			font-size: 30px;
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(3) a p img{
+			width: 30px;
+			height: 35px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	main section.banner-area div.banner div.banner-img a p{
+			font-size: 20px;
+	}
+	main section.banner-area div.banner div.banner-img:nth-of-type(3) a p img{
+			width: 15px;
+			height: 20px;
+	}
+}
+
+main section.banner-area div.turn-page{/*两侧翻页按键*/
+		width: 40px;
+		height: 100%;
+		
+		display: flex;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		flex-direction: column;
+		-ms-flex-direction: column;
+		-webkit-flex-direction: column;
+		justify-content: center;
+		-webkit-justify-content: center;
+		z-index: 1000;
+		
+		position: absolute;
+		top: 0;
+		color: white;
+		font-size: 40px;
+		text-align: center;
+		cursor: pointer;
+		opacity: 0.5;
+}
+main section.banner-area div.turn-page:hover{
+		opacity: 0.8;
+}
+main section.banner-area div.turn-page:nth-of-type(1){
+		left: 0px;
+		background: linear-gradient(to left,rgba(0,0,0,.0),rgba(0,0,0,.2));
+		/*background: linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.2));*/
+		background: -webkit-linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.2));
+}
+main section.banner-area div.turn-page:nth-of-type(2){
+		right: 0px;
+		background: linear-gradient(to right,rgba(0,0,0,.0),rgba(0,0,0,.2));
+		/*background: linear-gradient(0deg,rgba(0,0,0,.0),rgba(0,0,0,.2));*/
+		background: -webkit-linear-gradient(0deg,rgba(0,0,0,.0),rgba(0,0,0,.2));
+}
+main section.banner-area div.turn-page span{
+		margin: 0 auto;
+}
+
+main section.banner-area ul.banner-selecter-container{/*banner图 选择条 开始*/
+		position: absolute;
+		width: 150px;
+		right: 50%;
+		transform: translateX(50%);
+		-webkit-transform: translateX(50%);
+		bottom: 20px;
+		z-index: 200;
+}
+main section.banner-area ul.banner-selecter-container li.banner-selecter{
+		width: 40px;
+		height: 20px;
+		line-height: 10px;
+		float: left;
+		margin: 0 5px;
+		cursor: pointer;
+}
+main section.banner-area ul.banner-selecter-container li.banner-selecter span{/*banner图 选择条 开始*/
+		display: inline-block;
+		width: 100%;
+		height: 2px;
+		background-color: #aaa;
+		
+}
+main section.banner-area ul.banner-selecter-container li.banner-selecter:nth-of-type(1) span{
+		background-color: #666;
+}
+	/*banner图 区域 结束*/
+	/*四张图 开始*/
+main section.four-image{
+		width: 100%;
+		overflow: hidden;
+}
+main section.four-image figure.one-img{
+		height: 272px;
+		float: left;
+		border-top: solid 2px #eee;
+		border-bottom: solid 2px #eee;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+}
+main section.four-image figure.one-img a{
+		display: block;
+		width: 100%;
+		height: 100%;
+}
+@media only screen and (min-width: 1024px) {
+	main section.four-image figure.one-img{
+			width: calc((100% - 6px) / 4);
+			width: -webkit-calc((100% - 6px) / 4);
+	}
+	main section.four-image figure.one-img + figure.one-img{
+			margin-left: 2px;
+	}
+	main section.four-image figure.one-img:nth-of-type(1){
+			background-image: url(../img/homePage/large/hey_siri_large_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(2){
+			background-image: url(../img/homePage/large/bts_beats_mac_large1_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(3){
+			background-image: url(../img/homePage/large/macbookair_large_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(4){
+			background-image: url(../img/homePage/large/how_to_shoot_on_iphone_large_2x.png);
+	}
+	
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+	main section.four-image figure.one-img{
+			width: calc((100% - 2px) / 2);
+			width: -webkit-calc((100% - 2px) / 2);
+	}
+	main section.four-image figure.one-img:nth-of-type(2),main section.four-image figure.one-img:nth-of-type(4){
+			margin-left: 2px;
+	}
+	main section.four-image figure.one-img:nth-of-type(1){
+			background-image: url(../img/homePage/medium/hey_siri_medium_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(2){
+			background-image: url(../img/homePage/medium/bts_beats_mac_medium1_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(3){
+			background-image: url(../img/homePage/medium/macbookair_medium_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(4){
+			background-image: url(../img/homePage/large/how_to_shoot_on_iphone_large.png);
+	}
+}
+@media only screen and (max-width: 767px) {
+	main section.four-image figure.one-img{
+			width: 100%;
+	}
+	main section.four-image figure.one-img:nth-of-type(1){
+			background-image: url(../img/homePage/small/hey_siri_small_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(2){
+			background-image: url(../img/homePage/small/bts_beats_mac_small_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(3){
+			background-image: url(../img/homePage/small/macbookair_small_2x.jpg);
+	}
+	main section.four-image figure.one-img:nth-of-type(4){
+			background-image: url(../img/homePage/small/how_to_shoot_on_iphone_small_2x.png);
+	}	
+}
+main section.four-image figure.one-img:nth-of-type(1) h4,main section.four-image figure.one-img:nth-of-type(4) h4{
+		color: white;
+		text-align: center;
+		line-height: 25px;
+		margin-top: 30px;
+		font-weight: 100;
+}
+main section.four-image figure.one-img:nth-of-type(2) h4,main section.four-image figure.one-img:nth-of-type(3) h4{
+			width: 80%;
+			margin: 0 auto;
+	}
+main section.four-image figure.one-img:nth-of-type(2) h4,main section.four-image figure.one-img:nth-of-type(3) h4{
+		color: black;
+		text-align: center;
+		line-height: 25px;
+		margin-top: 30px;
+}
+main section.four-image figure.one-img:nth-of-type(2) h5{
+		color: black;
+		text-align: center;
+		line-height: 20px;
+		font-weight: 100;
+		font-size: 12px;
+}
+	/*四张图 结束*/	
+	/*消费提醒 开始*/
+main section.remind-message{
+		background-color: rgb(245,245,245);
+		width: 100%;
+		padding: 20px 0;
+}
+main section.remind-message p{
+		width: 90%;
+		line-height: 17px;
+		max-width: 1000px;
+		margin: 0 auto;
+		color: darkgray;
+		font-size: 12px;
+		font-weight: 100;
+}
+main section.remind-message p b{
+		font-weight: 600;
+}
+	/*消费提醒 结束*/
+	/*更多购买信息 开始*/
+main section.more-buy-message{
+		width: 100%;
+		background-color: rgb(245,245,245);
+}
+main section.more-buy-message>div{
+		width: 90%;
+		max-width: 1000px;
+		margin: 0 auto;
+		border-top: solid 1px #ccc;
+		overflow: hidden;
+}
+main section.more-buy-message div div.ul-container{
+		float: left;
+		width: 20%;
+}
+@media only screen and (max-width: 767px) {
+	main section.more-buy-message div div.ul-container{
+		float: none;
+		width: 100%;
+	}
+}
+main section.more-buy-message ul{
+		width: 100%;
+		transition: height 0.2s;
+		-webkit-transition: height 0.2s;
+		overflow: hidden;
+}
+@media only screen and (max-width: 767px) {
+	main section.more-buy-message ul{
+		height: 26px;
+		border-bottom: solid 1px #ccc;
+	}
+}
+main section.more-buy-message ul li{
+		width: 100%;
+		padding: 5px 0;
+		position: relative;
+}
+main section.more-buy-message ul li:first-of-type{
+		font-size: 14px;
+		color: #555;
+		font-weight: bold;
+		cursor: default;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+}
+@media only screen and (max-width: 767px) {
+	main section.more-buy-message ul li:first-of-type{
+			cursor: pointer;
+	}
+}
+main section.more-buy-message ul li:first-of-type span{
+		position: absolute;
+		right: 10px;
+		font-size: 12px;
+		color: #888;
+}
+@media only screen and (min-width: 768px){
+	main section.more-buy-message ul li:first-of-type span{
+			display: none;
+	}
+}
+main section.more-buy-message ul li + li{
+		color: #666;
+		font-size: 12px;
+		
+}
+main section.more-buy-message>footer{
+		width: 90%;
+		max-width: 1000px;
+		margin: 20px auto 0;
+		line-height: 20px;
+		border-bottom: solid 1px #ccc;
+		color: #999;
+		font-size: 12px;
+}
+main section.more-buy-message>footer a{
+		color: #3366FF;
+}
+	/*更多购买信息 结束*/
+
+/*main 结束*/
+
+/*footer 开始*/
+body>footer{
+		width: 100%;
+		background-color: rgb(245,245,245);
+		padding: 20px 0 0 0;
+		margin-bottom: 20px;
+		color: #999;
+		font-size: 12px;
+}
+footer div{
+		width: 90%;
+		max-width: 1000px;
+		padding: 10px 0;
+		margin: 0 auto;
+		position: relative;
+}
+footer div span.add-line:after{
+		content: "|";
+		margin: 0 10px;
+}
+footer div span.nation-slecter{
+		right: 0;
+}
+@media only screen and (min-width: 768px) {
+	footer div span.nation-slecter{
+			position: absolute;
+	}
+}
+footer div span.nation-slecter img{
+		vertical-align: middle;
+}
+footer div span:nth-of-type(2){
+			margin-right: 20px;
+	}
+@media only screen and (max-width: 767px) {
+	footer div span:nth-of-type(2){
+			display: block;
+			padding: 10px 0;
+	}
+	footer div span.nation-slecter{
+			display: block;
+			position: static;
+	}
+}
+/*footer 结束*/

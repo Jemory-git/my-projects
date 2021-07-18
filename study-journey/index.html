@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/><!--使ie8-10采用最新模式解析页面-->
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/><!--设置布局视口和缩放-->
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="author" content="我是精英"/>
+		<meta name="generator" content="Hbuilder"/>
+		<title>Jemory作品展示</title>
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+		<!--解决H5标签在ie中的显示-->
+		<!--[if IE]>
+		<script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+		< ![endif]-->
+			
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		
+	</head>
+	<body>
+		<!--[if lte ie 9]>
+			<p style="border:1px red solid;height:500px;background-color:gold;line-height:200px;color:white;font-size:50px;">您的浏览器过于老旧，无法支持网页内容，并且使用老旧浏览器会对您的计算机安全造成威胁。请到<a href="http://browsehappy.com" style="color:black;">这里</a>更新最新的浏览器</p>
+		<![endif]-->
+		
+		<!-- Swiper -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide menu">
+				<div class="catalog-container">
+					<div class="skill-exercise catalog-item">
+						<div class="item-tittle overlap-child-item" id="pc">
+							<div>
+								技能练习
+							</div>
+						</div>
+						<div class="item-content overlap-child-item overlap-child-item-exercise">
+							<ul>
+								<li>
+									<a href="exercise/canvas_clock.html" target="_blank">canvas绘制时钟</a>
+								</li>
+								<li>
+									<a href="exercise/canvas_game_level.html" target="_blank">canvas小游戏</a>
+								</li>
+								<li>
+									<a href="js2048/js2048.html" target="_blank">2048游戏</a>
+								</li>
+								<li>
+									<a href="exercise/h5_video_control.html" target="_blank">H5视频播放控制条</a>
+								</li>
+								<li>
+									<a href="exercise/form_validate.html" target="_blank">H5表单验证</a>
+								</li>
+								<li>
+									<a href="exercise/photo_album.html" target="_blank">手风琴相册</a>
+								</li>
+								<li>
+									<a href="split-rotate/split-rotate.html" target="_blank">分裂旋转动画</a>
+								</li>
+								<li>
+									<a href="exercise/mouse-drag.HTML" target="_blank">鼠标拖动元素</a>
+								</li>
+								<li>
+									<a href="canvas/RoundRect.html" target="_blank">canvas绘制圆角矩形</a>
+								</li>
+								<li>
+									<a href="canvas/canvas-kick-the-ball.html" target="_blank">canvas动画</a>
+								</li>
+								<li>
+									<a href="canvas/digital-clock.html" target="_blank">canvas数字时钟动画</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="web-page-exercise catalog-item">
+						<div class="item-tittle overlap-child-item">
+							<div>
+								Web页面
+							</div>
+						</div>
+						<div class="item-content overlap-child-item">
+							<ul>
+								<li>
+									<a href="mooc/mooc.html" target="_blank">慕课网首页(PC端打开)</a>
+								</li>
+								<li>
+									<a href="damai/damai.html" target="_blank">大麦网首页(PC端打开)</a>
+								</li>
+								<li>
+									<a href="apple/apple.html" target="_blank">苹果官网首页(响应式)</a>
+								</li>
+								<li>
+									<a href="zuwome/zuwome.html" id="to-zuwome-m" target="__blank">移动端站点--租我么M站</a>
+										<span id="m-website">
+											<span class="prompt">请用手机浏览器<br />扫二维码进入M站</span>
+										<span id="shutdown">x</span>
+										<img src="img/zuwome-M.png" />
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide content">
+				<div class="menu-button">
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>
+				</div>
+				<iframe src="iframe.html">
+					
+				</iframe>
+			</div>
+		</div>
+	</div>
+
+
+		
+		
+		<!--引入外部 脚本文件-->
+		<script type="text/javascript" src="js/zepto.dev.js"></script>
+		<script src="js/swiper-3.4.2.jquery.min.js"></script>
+		
+		
+	<!-- Initialize Swiper -->
+	<script>
+		function filtrateEvent(e,fun){//过滤掉被a元素 和 二维码冒泡触发的事件
+			var triggerEl = e.target || e.srcElement;
+			if (triggerEl.tagName !== "A" && triggerEl.tagName !== "IMG"){
+				fun();
+			} else{
+				return;
+			}
+		};
+		
+		//菜单翻转，并过滤掉冒泡上来的click事件
+		$(".overlap-child-item").on("click",function(e){
+			var $this = this;
+			filtrateEvent(e,function(){
+				$($this).parent().toggleClass("toggle-rotate");
+			});
+		});
+		
+		
+		//判断是移动端和是PC端
+		var reg = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i;
+
+			function isMobile() {
+				if(navigator.userAgent.match(reg)) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			$("#to-zuwome-m").on("touchstart mousedown", function(e) {
+				if(!isMobile() || document.documentElement.clientWidth > 1100) {
+					e.preventDefault;
+					$("#m-website").toggle();
+				} else {
+					return;
+				}
+			});
+			$("#shutdown").on("click", function() {
+				$("#m-website").toggle();
+			});
+			$("#pc").on("touchstart",function(e){
+				if(isMobile()) {
+					e.preventDefault;
+					alert("您好，技能练习的内容不支持移动端，请在PC端打开");
+				}
+			});
+		
+		
+		//swiper效果
+		var toggleMenu = function(){
+			if (swiper.previousIndex == 0)
+				swiper.slidePrev()
+		}
+		, menuButton = document.getElementsByClassName('menu-button')[0]
+		, swiper = new Swiper('.swiper-container', {
+			slidesPerView: 'auto'
+			, initialSlide: 1
+			, resistanceRatio: .00000000000001
+			, onSlideChangeStart: function(slider) {
+				if (slider.activeIndex == 0) {
+					menuButton.classList.add('cross')
+					menuButton.removeEventListener('click', toggleMenu, false)
+				} else
+					menuButton.classList.remove('cross')
+			}
+			, onSlideChangeEnd: function(slider) {
+				if (slider.activeIndex == 0){
+					menuButton.removeEventListener('click', toggleMenu, false)
+				}else{
+					menuButton.addEventListener('click', toggleMenu, false)
+				}
+			}
+//			,onAfterResize:function(){
+//				menuButton.addEventListener('click', toggleMenu, false)
+//			}
+			, slideToClickedSlide: true
+		});
+		
+	
+	</script>
+	</body>
+</html>

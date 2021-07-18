@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="无知的少年"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<meta name="generator" content="HBuilder"/>
+		<title></title>
+		<style type="text/css">
+		
+			*{
+					margin: 0px;
+					padding: 0px;
+					font-family: "微软雅黑";
+					font-size: 14px;
+			}
+			a{
+					text-decoration: none;
+					
+			}
+			li{
+					list-style: none;
+			}
+			body{
+					background: url(img/img_HTML5_canvas_3/11.jpg);
+					background-size: cover;
+			}
+			.name{
+					width: 300px;
+					height: auto;
+					margin: 50px auto;
+					text-align: center;
+			}#gk{
+					height: 50px;
+					margin-top: 20px;
+					line-height: 50px;
+			}
+			#leavl{
+					display: inline-block;
+					
+			}
+			#play{
+					margin: 5px 5px;
+					display: inline-block;
+			}
+
+			
+		</style>
+	</head>
+	<body>
+		<div class="name">
+			见缝插针“小游戏”
+			<div id="gk">
+				关卡
+				<span id="level">
+					1
+				</span>
+				<a href="kgc_task_canvas3_play.html" id="play" >
+					<img src="img/img_HTML5_canvas_3/play.png"/>
+				</a>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var href = window.location.href,
+				num = href.split("#")[1],
+				le = document.getElementById("level"),
+				play = document.getElementById("play");
+				
+			if(num == undefined || num == 7){
+				num = 0
+				window.location.assign("canvas_game_level.html#0")
+			};
+			
+			le.innerHTML = num*1 + 1;
+			
+			play.onclick = function (){
+				play.setAttribute("href","canvas_game_play.html#"+num) 
+			};
+		</script>
+		
+	</body>
+</html>

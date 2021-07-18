@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="无知的少年"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<meta name="generator" content="HBuilder"/>
+		<title></title>
+		<style type="text/css">
+			*{
+					margin: 0px;
+					padding: 0px;
+					font-family: "微软雅黑";
+					font-size: 14px;
+			}
+			a{
+					text-decoration: none;
+					
+			}
+			li{
+					list-style: none;
+			}
+			span{
+					width: 200px;
+					height: 50px;
+					display: inline-block;
+					position: absolute;
+					left: 300px;
+					top: 200px;
+					font-size: 50px;
+			}
+			span#span{
+					top: 10px;
+					width: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" style="border: dashed red 1px;margin-left: 200px;"></canvas>
+		<span id="remind">
+			您共有三次失误机会
+		</span>
+		<span id="span">
+			请按上方向键进行操作
+		</span>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas"),
+				span = document.getElementById("remind"),
+				context = canvas.getContext("2d"),
+				c_width = window.innerWidth*0.7;
+			canvas.width = c_width;
+			canvas.height = 700;
+			
+			var hp = 3,
+				curLevel = window.location.href.split("#")[1],
+				waitBalls =[],
+				balls = [],
+				page = curLevel*1+1;
+			
+			var level = [//关卡初始数据
+				{//第一关
+					count:3,
+					waitBall:13,
+					rotateSpeed:50
+				},
+				{//第二关
+					count:4,
+					waitBall:17,
+					rotateSpeed:40
+				},
+				{//第三关
+					count:6,
+					waitBall:15,
+					rotateSpeed:35
+				},
+				{//第四关
+					count:7,
+					waitBall:14,
+					rotateSpeed:35
+				},
+				{//第五关
+					count:8,
+					waitBall:13,
+					rotateSpeed:35
+				},
+				{//第六关
+					count:10,
+					waitBall:10,
+					rotateSpeed:30
+				},
+				{//第七关
+					count:10,
+					waitBall:10,
+					rotateSpeed:25
+				}
+			]
+			function addBeginningBall(levelCount) {//创建关卡难度球
+				for (var i=0;i<levelCount;i++) {
+					var beginningBall = {
+						x:0,
+						y:100,
+						deg:0,
+						vdeg:2,
+						num:""
+					}
+					beginningBall.deg = 360/levelCount*i;
+					balls.push(beginningBall);
+				}
+			};
+			function addWaitBall (wb){//添加等待球
+				for (var i=0;i<wb;i++) {
+					waitBalls.push(i+1)
+				}
+			};
+			document.addEventListener("keydown",function(e){//点击时插入旋转球
+				if (e.keyCode == 38 || e.which == 38) {//上方向键被按
+					var x = 0;
+					for (var i=0;i<balls.length;i++) {
+						if (balls[i].deg < 12 || 348 < balls[i].deg%360 || balls[i].deg%360 <12  ) {
+							x++;
+						}
+					}
+					if(x == 0){
+						var data = {
+							x:0,
+							y:100,
+							deg:0,
+							vdeg:2,
+							num:waitBalls[0]
+						}
+						waitBalls.shift();
+						balls.push(data);
+						if (waitBalls.length == 0) {
+							if (page == 7) {
+								alert("恭喜完成通关");
+								window.location.assign("canvas_game_level.html#0");
+								return;
+							}
+							var feedback = confirm("恭喜，点击确定进入下一关");
+							if(feedback){
+								window.location.assign("canvas_game_level.html#"+page);
+							}else{
+								window.location.assign("canvas_game_level.html#"+(page-1));
+							}
+						}
+					}else{
+						hp--;
+						if(hp > 0){
+							span.innerHTML = "您还有"+hp+"次机会";
+						}else{
+							alert("Game over");
+							window.history.go(0)
+						}
+					}
+				}
+			});//keydown结束
+			function drawRotateBall (r,deg,t) {//绘制旋转球
+				context.save();
+				context.translate(c_width*0.5,200);
+				context.rotate(deg*Math.PI/180);
+				
+				context.beginPath();
+				context.moveTo(0,0);
+				context.lineTo(0,100);
+				context.stroke();
+				
+				context.beginPath();
+				context.arc(0,100,r,0,6.29);
+				context.fill();
+				
+				context.beginPath();
+				context.fillStyle = "white";
+				context.font = "14px normal";
+				context.fillText(t,-4,104);
+				context.fill();
+				context.restore();
+			};
+			function drawWatiBall(){//绘制等待球
+				for (var i=0;i<waitBalls.length;i++) {
+					context.save();
+					context.translate(c_width*0.5,200);
+					
+					context.beginPath();
+					context.arc(0,150+21*i,10,0,6.29);
+					context.fill();
+					
+					context.beginPath();
+					context.fillStyle = "white";
+					context.font = "14px normal";
+					context.fillText(waitBalls[i],-6,154+21*i);
+					context.restore();
+				}
+			};
+			function drawBigBall (){
+				context.save();
+				context.translate(c_width*0.5,200);
+				
+				context.beginPath();
+				context.arc(0,0,30,0,6.29);
+				context.fill();
+				
+				context.beginPath();
+				context.fillStyle = "white";
+				context.font = "40px normal";
+				context.fillText(curLevel*1+1,-10,12);
+				
+				context.restore();	
+			};
+			
+			function rotated (speed) {//旋转方法
+				window.setInterval(function(){
+					context.clearRect(0,0,c_width,700);
+					drawWatiBall();
+					
+					for (var i=0;i<balls.length;i++) {
+						drawRotateBall(10,balls[i].deg,balls[i].num);
+						balls[i].deg += balls[i].vdeg;
+					}
+					drawBigBall();
+				},speed)
+			};
+			addWaitBall(level[curLevel].waitBall);//添加等待球
+			addBeginningBall(level[curLevel].count);//添加关卡难度球
+			rotated(level[curLevel].rotateSpeed);//旋转速度切换
+		</script>
+		
+		
+		
+	</body>
+</html>

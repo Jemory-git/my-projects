@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" /><!--编码集在第一行声明-->
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/><!--使ie8-10采用最新模式解析页面-->
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/><!--设置布局视口和缩放-->
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="author" content="我是精英"/>
+		<meta name="generator" content="Hbuilder"/>
+		<title>苹果官网--仿制</title>
+		<link rel="icon" href="favicon.ico"/>
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<link rel="bookmark" href="favicon.ico"/>
+		<!--解决H5标签在ie中的显示-->
+		<!--[if IE]>
+		<script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+		< ![endif]-->
+			
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		
+	</head>
+	<body>
+		<!--[if lte ie 9]>
+			<p style="border:1px red solid;height:500px;background-color:gold;line-height:200px;color:white;font-size:50px;">您的浏览器过于老旧，无法支持网页内容，并且使用老旧浏览器会对您的计算机安全造成威胁。请到<a href="http://browsehappy.com" style="color:black;">这里</a>更新最新的浏览器</p>
+		<![endif]-->
+		
+		<header>
+			<nav>
+			<!--横向的导航-->
+				<ul class="transverse">
+					<li>
+						<a href="javascript:void(0)" class="appleHome">
+							<img src="img/appleicon.png" width="20" height="25" alt="apple 苹果 苹果官网"/>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="scale0">Mac</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="scale0">ipad</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="scale0">iphone</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="scale0">Watch</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="scale0">Music</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="scale0">技术支持</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" id="search_btn" class="scale0">
+							<span class="icon-search"></span> 搜索
+						</a>
+					</li>
+					<li class="search-li">
+						<span class="icon-search"></span>
+						<input type="search" placeholder="搜索 Apple.com" class="searchInput"/>
+					</li>
+					<li>
+						<a href="javascript:void(0)" id="shopping_bag_t" class="scale0">
+							<span class="icon-suitcase shopping-bag-btn"></span>
+							<span class="triangle"><img src="img/sanjiao.png" alt="" width="20" height="20"/></span>
+						</a>
+						<a href="javascript:void(0)" id="search_shutdown" style="display: none;">
+							<span class="icon-remove"></span>
+						</a>
+					</li>
+				</ul>
+			<!--垂直的导航-->
+				<ul class="vertical">
+					<li class="fold">
+						<a href="javascript:void(0)" id="fold_btn">
+							<span class="icon-list"></span>
+						</a>
+						<a href="javascript:void(0)" id="fold_btn_shutdown" style="display: none;">
+							<span class="icon-remove"></span>
+						</a>
+					</li>
+					<li class="home">
+						<a href="javascript:void(0)" id="appleHome">
+							<img src="img/appleicon.png" width="20" height="25" alt="apple 苹果 苹果官网"/>
+						</a>
+						<a href="javascript:void(0)" id="icon_down" style="display: none;">
+							<span class="icon-chevron-down"></span>
+						</a>
+					</li>
+					<li class="shopping-bag">
+						<a href="javascript:void(0)">
+							<span class="icon-suitcase shopping-bag-btn" id="shopping_bag_btn"></span>
+							<span class="triangle"><img src="img/sanjiao.png" alt="" width="20" height="20"/></span>
+						</a>
+					</li>
+				</ul>
+			<!--折叠的产品列表-->
+				<ul class="fold-product-list" id="fold_product_list">
+					<li>
+						<a href="javascript:void(0)">Mac</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">ipad</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">iphone</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">Watch</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">Music</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">技术支持</a>
+					</li>
+					<li id="search_li">
+						<span class="icon-search"></span>
+						<input type="search" placeholder="搜索 Apple.com" class="searchInput"/>
+					</li>
+				</ul>
+			<!--快速链接-->
+				<div id="quickSearch" class="quickSearch">
+					<ul>
+						<li class="quickSearch-item">快速链接</li>
+						<li class="quickSearch-item">
+							<a href="javascript:void(0)">查找零售店</a>
+						</li>
+						<li class="quickSearch-item">
+							<a href="javascript:void(0)">配件</a>
+						</li>
+						<li class="quickSearch-item">
+							<a href="javascript:void(0)">iPod</a>
+						</li>
+						<li class="quickSearch-item">
+							<a href="javascript:void(0)">iOS</a>
+						</li>
+					</ul>
+				</div>
+			<!--购物袋列表-->
+				<aside class="shopping-bag-list" id="shopping_bag_list">
+					<p>你的购物袋是空的</p>
+					<ul>
+						<li>
+							<a href="javascript:void(0)">
+								<span class="icon-suitcase"></span>
+								&nbsp;购物袋
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<span class="icon-heart-empty"></span>
+								&nbsp;收藏
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<span class="icon-columns"></span>
+								&nbsp;订单
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<span class="icon-cog"></span>
+								&nbsp;账户
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">
+								<span class="icon-user"></span>
+								&nbsp;登录
+							</a>
+						</li>
+					</ul>
+				</aside>
+			</nav>
+		</header>
+		<main>
+			<!--banner区域-->
+			<section class="banner-area" id="banner_area">
+				<!--banner 图-->
+				<div id="banner" class="banner">
+					<div class="banner-img">
+						<a href="javascript:void(0)">
+							<p>iPhone<br />
+								<b>&nbsp;&nbsp;7,在此。</b>
+							</p>
+						</a>
+					</div>
+					<div class="banner-img">
+						<a href="javascript:void(0)">
+							<p>
+								<b>iPad Pro</b><br />不只能做到，<br />还能做到更好。
+							</p>
+						</a>
+					</div>
+					<div class="banner-img">
+						<a href="javascript:void(0)">
+							<p>
+								<span>
+									<img src="img/blackapple.png" />
+								</span>
+								<b>WATCH</b>
+								<br />series 2<br />
+								<b>每一天都可以更好</b>
+							</p>
+						</a>
+					</div>
+				</div>
+				<!--<div class="turn-page-btns">-->
+					<div id="turn_page_left" class="turn-page">
+						<span class="icon-circle-arrow-right"></span>						
+					</div>
+					<div id="turn_page_right" class="turn-page">
+						<span class="icon-circle-arrow-left"></span>						
+					</div>
+				<!--</div>-->
+				<ul class="banner-selecter-container" id="banner_selecter_container">
+					<li class="banner-selecter">
+						<span></span>
+					</li>
+					<li class="banner-selecter">
+						<span></span>
+					</li>
+					<li class="banner-selecter">
+						<span></span>
+					</li>
+				</ul>
+			</section>
+			<section class="four-image">
+				<figure class="one-img">
+					<a href="javascript:void(0)">
+						<h4>
+							巨石强森和 Siri<br />
+							观看影片
+						</h4>
+					</a>
+				</figure>
+				<figure class="one-img">
+					<a href="javascript:void(0)">
+						<h4>
+							为高校生活买 Mac 或 iPad Pro 搭配 Beats，只需 Mac 或 iPad Pro 的价。
+						</h4>
+						<h5>
+							此优惠于Apple在线教育商店<br />
+							和北京地区之外的Apple Store零售店提供。
+						</h5>
+					</a>
+				</figure>
+				<figure class="one-img">
+					<a href="javascript:void(0)">
+						<h4>
+							Mac 以旧换新，你现有 Mac 最高可折抵 RMB 9,000 元*。
+						</h4>
+					</a>
+				</figure>
+				<figure class="one-img">
+					<a href="javascript:void(0)">
+						<h4>
+							<canvas id="colorful_font" width="140" height="25"></canvas><br />
+							拍摄的窍门
+						</h4>
+					</a>
+				</figure>
+			</section>
+			<section class="remind-message">
+				<p>*实际折抵价值取决于设备的状况，并且可能不时发生变化。<br />
+				双镜头摄像头仅于 <b>iPhone 7 Plus</b> 提供。亮黑色和红色外观仅提供 <b>128GB</b> 及 <b>256GB</b> 存储容量的机型。</p>
+			</section>
+			<section class="more-buy-message">
+				<div>
+					<div class="ul-container">
+						<ul>
+							<li class="more-buy-message-header">选购及了解<span class=" icon-angle-down click-none"></span></li>
+							<li>
+								<a href="javascript:void(0)">Mac</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">iPad</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">iPhone</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Watch</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Music</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">iTunes</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">iPod touch</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">配件</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">App Store 充值卡</a>
+							</li>
+						</ul>
+					</div>
+					<div class="ul-container">
+						<ul>
+							<li class="more-buy-message-header">Apple Store 商店<span class=" icon-angle-down click-none"></span></li>
+							<li>
+								<a href="javascript:void(0)">查找零售店</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Genius Bar 天才吧</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Today at Apple</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Apple 夏令营</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Field Trip 课外活动</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Apple Store App</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">翻新和优惠</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">分期付款</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">重复使用和循环利用</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">订单状态</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">选购帮助</a>
+							</li>
+						</ul>
+					</div>
+					<div class="ul-container">
+						<ul>
+							<li class="more-buy-message-header">教育应用<span class=" icon-angle-down click-none"></span></li>
+							<li>
+								<a href="javascript:void(0)">Apple 与教育</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">高校师生选购</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="more-buy-message-header">商务应用<span class=" icon-angle-down click-none"></span></li>
+							<li>
+								<a href="javascript:void(0)">Apple 与商务</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">商务选购</a>
+							</li>
+						</ul>
+					</div>
+					<div class="ul-container">
+						<ul>
+							<li class="more-buy-message-header">账户<span class=" icon-angle-down click-none"></span></li>
+							<li>
+								<a href="javascript:void(0)">管理你的 Apple ID</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Apple Store 账户</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">iCloud.com</a>
+							</li>
+						</ul>
+						<ul>
+							<li class="more-buy-message-header">Apple 价值观<span class=" icon-angle-down click-none"></span></li>
+							<li>
+								<a href="javascript:void(0)">辅助功能</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">环境责任</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">隐私</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">供应商责任</a>
+							</li>
+						</ul>
+					</div>
+					<div class="ul-container">
+						<ul>
+							<li class="more-buy-message-header">关于 Apple <span class=" icon-angle-down click-none"></span></li>
+							<li>
+								<a href="javascript:void(0)">Newsroom</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">Apple 管理层</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">工作机会</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">活动</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)">联系 Apple</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<footer>
+					更多选购方式：前往
+					<a href="javascript:void(0)">Apple Store</a> 
+					零售店，致电 400-666-8800 或查找在你附近的
+					<a href="javascript:void(0)">授权经销商</a>
+					。
+				</footer>
+			</section>
+		</main>
+		<footer>
+			<div>
+				<span class="nation-slecter">
+					<a href="javascript:void(0)">
+						<img src="img/zh-cn.png" width="30" height="30"/>中国
+					</a>
+				</span>
+				<span>Copyright © 2017 Apple Inc. 保留所有权利。</span>
+				<span class="add-line">
+					<a href="javascript:void(0)">使用条款</a>
+				</span>
+				<span class="add-line">
+					<a href="javascript:void(0)">销售政策</a>
+				</span>
+				<span class="add-line">
+					<a href="javascript:void(0)">法律信息</a>
+				</span>
+				<span>
+					<a href="javascript:void(0)">网站地图</a>
+				</span>
+			</div>
+			<div>
+				京公安网安备 11010502008968
+				<a href="javascript:void(0)">京ICP备10214630</a>
+			</div>
+		</footer>
+		
+		<!--引入外部 脚本文件-->
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script><!--引入JQ-->
+		
+		<script id="indexjs" type="text/javascript" src="js/index.js"></script>
+		<script id="indexjs" type="text/javascript" src="js/banner.js"></script>
+	</body>
+</html>

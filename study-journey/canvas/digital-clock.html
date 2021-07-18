@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="无知的少年" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<meta name="generator" content="HBuilder" />
+
+	<title>canvas时钟</title>
+	<script src="js/digit.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/CSS_Reset.css" />
+</head>
+
+<body>
+	<canvas id="clock" style="border: dashed red 1px;"></canvas>
+
+	<script type="text/javascript">
+		var CANVASWIDTH = window.innerWidth,
+			CANVASHEIGHT = window.innerHeight - 100,
+			color = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"],
+			//存放移动的彩色小球的数据
+			moveData = [],
+			//定义判断时间是否变化的变量 tt odd even
+			tt = 0,
+			odd = {
+				hour: 0,
+				minute: 0,
+				second: 0
+			},
+			even = {
+				hour: 0,
+				minute: 0,
+				second: 0
+			},
+			//定义时间显示区域的边距   和 球的半径
+			MARGINLEFT = 50,
+			MARGINHEIGHT = 50,
+			RADIUS = 10,
+			SECONDS, MINUTES, HOURS,
+
+			//获取canvas对象
+			canvas = document.getElementById("clock"), context = canvas.getContext("2d");
+		canvas.width = CANVASWIDTH;
+		canvas.height = CANVASHEIGHT;
+		context.globalCompositeOperation = 'lighten'
+		let lastTime = Date.now();
+
+		uptate();//绘制
+
+		//定义方法区域
+		function addData(num, p) {
+			var len = digit[num][0].length;
+			for (var i = 0; i < 10; i++) {
+				for (var j = 0; j < len; j++) {
+					if (digit[num][i][j] == 1) {
+						var data = {
+							x: MARGINLEFT + 2 * (RADIUS + 1) * j + 15 * (RADIUS + 1) * p,
+							y: MARGINHEIGHT + 2 * (RADIUS + 1) * i,
+							vx: Math.random() > 0.5 ? Math.min(15, 20 * Math.random()) : Math.max(-10, -20 * Math.random()),
+							vy: -20,
+							vAdd: Math.ceil(Math.random() * 10),
+							color: color[Math.floor(Math.random() * color.length)]
+						}
+						moveData.push(data);
+					}
+				}
+
+			}
+
+		};
+		function drawBallsTime(num, p) {
+			var len = digit[num][0].length;
+			for (var i = 0; i < 10; i++) {
+				for (var j = 0; j < len; j++) {
+					if (digit[num][i][j] == 1) {
+						context.beginPath();
+						context.fillStyle = "#354";
+						context.arc(MARGINLEFT + 2 * (RADIUS + 1) * j + 15 * (RADIUS + 1) * p, MARGINHEIGHT + 2 * (RADIUS + 1) * i, RADIUS, 0, 6.28);
+						context.fill();
+					}
+
+				}
+			}
+		};
+		function drawColorfulBall() {
+
+			for (var i = 0; i < moveData.length; i++) {
+				context.beginPath();
+				context.fillStyle = moveData[i].color;
+				context.arc(moveData[i].x, moveData[i].y, RADIUS, 0, 6.28);
+				context.fill();
+
+				moveData[i].x += moveData[i].vx;
+				moveData[i].y += moveData[i].vy;
+				moveData[i].vy += moveData[i].vAdd;
+
+				if (moveData[i].y > CANVASHEIGHT - RADIUS) {
+					moveData[i].y = CANVASHEIGHT - RADIUS;
+					moveData[i].vy *= -0.7
+				}
+			}
+
+		};
+		function deleteData() {//限制彩球数组的长度
+			var len = moveData.length - 100;//当减去的值较小时（比如10），就会有报错，不知什么原因。
+			for (var i = 0; i < len; i++) {
+				if (moveData[i].x < 10 || moveData[i].x > CANVASWIDTH) {
+					moveData.splice(i, 1)
+				}
+			}
+		};
+
+		function getCurTime() {
+			tt += 1;
+			//获取当前时间的 时 分 秒
+			var time = new Date(), s = time.getSeconds(), m = time.getMinutes(), h = time.getHours();
+			SECONDS = s < 10 ? ("0" + s) : s;
+			MINUTES = m < 10 ? ("0" + m) : m;
+			HOURS = h < 10 ? ("0" + h) : h;
+			if (tt % 2 == 0) {
+				even.hour = HOURS;
+				even.minute = MINUTES;
+				even.second = SECONDS;
+			}
+			if (tt % 2 != 0) {
+				odd.hour = HOURS;
+				odd.minute = MINUTES;
+				odd.second = SECONDS;
+			}
+
+
+		};
+		//			function drawFilledText (){
+		//				context.beginPath();
+		//				context.font = "100px bold 微软雅黑";
+		//				context.fillText(HOURS + ":" + MINUTES +":" + SECONDS,CANVASWIDTH/2,CANVASHEIGHT*0.5);
+		//				context.closePath();
+		//				
+		//			};
+		//			function drawVoidText (){
+		//				context.beginPath();
+		//				context.font = "100px bold 微软雅黑";
+		//				context.strokeText(HOURS + ":" + MINUTES +":" + SECONDS,0,CANVASHEIGHT*0.5);
+		//				context.closePath();
+		//				
+		//			};
+
+		function uptate() {
+			//clearInterval(interval);
+			requestAnimationFrame(function () {
+				let now = Date.now();
+				if (now - lastTime > 30) {
+
+					lastTime = now;
+
+					context.clearRect(0, 0, CANVASWIDTH, CANVASHEIGHT);//清空画布
+					getCurTime();//更新时间
+					//绘制
+					//drawFilledText();
+					//drawVoidText();
+
+					drawBallsTime(Math.floor(HOURS / 10), 0);
+					drawBallsTime(Math.floor(HOURS % 10), 1);
+					drawBallsTime(10, 2);//冒号
+					drawBallsTime(Math.floor(MINUTES / 10), 3);
+					drawBallsTime(Math.floor(MINUTES % 10), 4);
+					drawBallsTime(10, 5);//冒号
+					drawBallsTime(Math.floor(SECONDS / 10), 6);
+					drawBallsTime(Math.floor(SECONDS % 10), 7);
+
+					if (even.hour != odd.hour) {
+						addData(Math.floor(HOURS / 10), 0);
+						addData(Math.floor(HOURS % 10), 1);
+					}
+					if (even.minute != odd.minute) {
+						addData(Math.floor(MINUTES / 10), 3);
+						addData(Math.floor(MINUTES % 10), 4);
+					}
+					if (even.second != odd.second) {
+						addData(Math.floor(SECONDS / 10), 6);
+						addData(Math.floor(SECONDS % 10), 7);
+					}
+
+					drawColorfulBall();
+					deleteData();
+					console.log(moveData.length)
+
+				}
+				uptate();
+			});
+
+		};
+	</script>
+</body>
+
+</html>

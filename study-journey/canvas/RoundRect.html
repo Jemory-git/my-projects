@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="无知的少年"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<meta name="generator" content="HBuilder"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/CSS_Reset.css"/>
+		<style type="text/css">
+			#roundRect{
+					border: dashed red 1px;
+			}
+			#btn{
+					border: gold solid 3px;
+					background-color: red;
+					width: 300px;
+					padding: 5px;
+					margin: 0 auto;
+					cursor: default;
+					text-align: center;
+					color: white;
+					font-size: 20px;
+					border-radius: 15px;
+					
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="btn">
+				点击随机绘制圆角矩形
+			</div>
+			<canvas id="roundRect"></canvas>
+			
+			<script type="text/javascript">
+				(function (){
+					var canvas = document.getElementById("roundRect");
+					var ctx = canvas.getContext("2d");
+					var mathPi = Math.PI;
+					canvas.width = (document.documentElement.clientWidth || document.body.clientWidth)-50;
+					canvas.height = (document.documentElement.clientHeight|| document.body.clientHeight)-50;
+					
+					function RoundRect(x,y,w,h,r,strC,styC){//创建圆角矩形对象
+						this.radius = r;
+						this.positionX = x;
+						this.positionY = y;
+						this.width = w;
+						this.height = h;
+						this.strokeColor = strC;
+						this.styleColor = styC;
+					};
+					RoundRect.prototype.strokeRoundRect = function (){//绘制空心圆角矩形
+						var r = this.radius,
+							x = this.positionX,
+							y = this.positionY,
+							w = this.width,
+							h = this.height;
+						ctx.strokeStyle = this.strokeColor;
+						ctx.beginPath();
+						ctx.strokeStyle = this.strc;
+						ctx.moveTo(x + r,y);
+						ctx.lineTo(x + r + w,y);
+						ctx.stroke();//绘制上边线
+						
+						ctx.beginPath();
+						ctx.strokeStyle = this.strc;
+						ctx.moveTo(x + r*2 + w,y + r);
+						ctx.lineTo(x + r*2 + w,y + r + h);
+						ctx.stroke();//绘制右边线
+						
+						ctx.beginPath();
+						ctx.strokeStyle = this.strc;
+						ctx.moveTo(x + r + w,y + r*2 + h);
+						ctx.lineTo(x + r,y + r*2 + h);
+						ctx.stroke();//绘制下边线
+						
+						ctx.beginPath();
+						ctx.strokeStyle = this.strc;
+						ctx.moveTo(x,y + r + h);
+						ctx.lineTo(x,y + r);
+						ctx.stroke();//绘制左边线
+						
+						ctx.beginPath();
+						ctx.arc(x + r + w,y + r,r,0,mathPi*1.5,true);
+						ctx.stroke();//绘制右上角弧线
+						
+						ctx.beginPath();
+						ctx.arc(x + r + w,y + r + h,r,0,mathPi*0.5,false);
+						ctx.stroke();//绘制右下角弧线
+						
+						ctx.beginPath();
+						ctx.arc(x + r,y + r + h,r,mathPi,mathPi*0.5,true);
+						ctx.stroke();//绘制左下角弧线
+						
+						ctx.beginPath();
+						ctx.arc(x + r,y + r,r,mathPi,mathPi*1.5,false);
+						ctx.stroke();//绘制左上角弧线
+						
+					};
+					RoundRect.prototype.fillRoundRect = function (){//绘制填充圆角矩形
+						var fr = this.radius,
+							fx = this.positionX,
+							fy = this.positionY,
+							fw = this.width,
+							fh = this.height;
+						
+						ctx.beginPath();
+						ctx.fillStyle = this.styleColor;
+						
+						ctx.moveTo(fx + fr,fy);
+						ctx.lineTo(fx + fr + fw,fy);
+						ctx.lineTo(fx + fr*2 + fw,fy + fr);
+						ctx.lineTo(fx + fr*2 + fw,fy + fr + fh);
+						ctx.lineTo(fx + fr + fw,fy + fr*2 + fh);
+						ctx.lineTo(fx + fr,fy + fr*2 + fh);
+						ctx.lineTo(fx,fy + fr + fh);
+						ctx.lineTo(fx,fy + fr);
+						ctx.fill();
+						
+						ctx.arc(fx + fr + fw,fy + fr,fr,0,mathPi*1.5,true);
+						ctx.fill();
+						ctx.arc(fx + fr + fw,fy + fr + fh,fr,0,mathPi*0.5,false);
+						ctx.fill();
+						ctx.arc(fx + fr,fy + fr + fh,fr,mathPi,mathPi*0.5,true);
+						ctx.fill();
+						ctx.arc(fx + fr,fy + fr,fr,mathPi,mathPi*1.5,false);
+						ctx.fill();
+						
+					};
+					
+					var btn = document.getElementById("btn"),//点击时随机绘制圆角矩形
+						objectName = 0,
+						arr = [],
+						color = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];
+					
+					btn.addEventListener("click",function () {//点击按钮，在随机位置生成矩形
+						var randomx = Math.random()*(canvas.width-300),
+							randomy = Math.random()*(canvas.height-300),
+							randomw = Math.random()*300,
+							randomh = Math.random()*300,
+							randomr = Math.random()*30,
+							randoms = Math.floor(Math.random()*color.length),
+							randomf = Math.floor(Math.random()*color.length);
+						
+						arr[objectName] = new RoundRect(randomx,randomy,randomw,randomh,randomr,color[randoms],color[randomf]);
+						arr[objectName].fillRoundRect();
+						arr[objectName].strokeRoundRect();
+						
+						objectName++;
+					},false)
+					
+					
+					canvas.addEventListener("click",function (e){//点击canvas的任意点时，绘制圆角矩形
+						var mouseX = e.clientX,
+							mouseY = e.clientY - canvas.offsetTop;
+							
+						var randomW = Math.random()*300,
+							randomH = Math.random()*300,
+							randomR = Math.random()*30,
+							randomS = Math.floor(Math.random()*color.length),
+							randomF = Math.floor(Math.random()*color.length);
+						
+						arr[objectName] = new RoundRect(mouseX,mouseY,randomW,randomH,randomR,color[randomS],color[randomF]);
+						arr[objectName].fillRoundRect();
+						arr[objectName].strokeRoundRect();
+						
+						objectName++;
+					},false)
+					
+					
+				})();
+				
+				
+			</script>
+			
+		</div>
+	</body>
+</html>

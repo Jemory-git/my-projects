@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="无知的少年"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<meta name="generator" content="HBuilder"/>
+		
+		<title>canvas时钟</title>
+		
+		<style type="text/css">
+			#background{
+					margin: 50px auto;
+					width: 500px;
+					height: 500px;
+					background-image: radial-gradient(#acF, #2C8DFB);
+					border-radius: 50%;
+			}
+		</style>
+		
+		
+	</head>
+	<body> 
+		
+		<!--<img src="img/img_HTML5_canvas_2/clock.jpg">-->
+		<div id="background">
+			<canvas id="clock" width="500" height="500"></canvas>
+		</div>
+		
+		<script type="text/javascript">
+			window.onload = function () {
+				
+				//获取到canvas
+				var canvas = document.getElementById("clock"),
+					cxt = canvas.getContext("2d");
+				//绘制背景图
+//				cxt.save();
+//				cxt.arc(250,250,240,0,6.29);
+//				
+//				cxt.stroke();
+//				cxt.clip();
+//				cxt.beginPath();
+//				cxt.restore();
+//				
+//				var img = new Image();
+//				img.src = "img/img_HTML5_canvas_2/clock.jpg";
+//				img.onload = function(){
+//					cxt.drawImage(img,0,0,500,500)
+//				}
+
+//				var pattern = cxt.createPattern(img,"no-repeat");
+//				cxt.fillStyle = pattern;
+//				cxt.rect(0,0,500,500);
+//				cxt.fill();
+//
+//				cxt.closePath();
+//				console.log(img)
+				
+				//定义画秒针的方法
+				function drawSecond (R,deg) {
+					var arr = [1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0];
+					
+					cxt.save();
+					//移动坐标原点,旋转6deg
+					cxt.translate(250,250);
+					cxt.rotate(deg*Math.PI/180);
+					
+					cxt.beginPath();
+					cxt.fillStyle = "slateblue";
+					for (var i=0;i<arr.length;i++) {
+						if(arr[i] == 0 ){
+							cxt.arc(2*R*i,0,R,0,6.29);
+							cxt.fill();
+						}
+					}
+					cxt.closePath();
+					cxt.restore();
+				};
+				
+				
+				//定义画矩形的方法
+				function rectAngle(x,y,deg,p,fillcolor){
+					cxt.save();
+					//移动坐标原点,旋转6deg
+					cxt.translate(250,250);
+					cxt.rotate(deg*Math.PI/180);
+					
+					cxt.beginPath();
+					cxt.rect(p-x,-y/2,x,y);
+					cxt.fillStyle = fillcolor;
+					cxt.lineWidth = 0;
+					cxt.strokeStyle = "rgba(0,0,0,0)";
+					cxt.closePath();
+					
+					cxt.fill();
+					cxt.stroke();
+					//还原坐标原点
+					cxt.restore();
+				
+				};
+				function per_minute(){//绘制分刻度
+					for (var i=0;i<60;i++) {
+						rectAngle(10,5,i*6,245,"yellow");
+					}
+				};
+				function per_ten(){//绘制时刻度
+					for (var i=0;i<13;i++) {
+						rectAngle(20,8,i*30,245,"yellow");
+					}
+				};
+				function time(){
+					cxt.clearRect(0,0,500,500);
+					
+					//画外表盘的园
+					cxt.beginPath();
+					cxt.strokeStyle = "#44ddaa";
+					cxt.lineWidth = 5;
+					cxt.arc(250,250,248,0,Math.PI*2,true);
+					cxt.stroke();
+					cxt.closePath();
+					
+					per_minute();//绘制分刻度
+					per_ten();//绘制时刻度
+					
+					var cur_date = new Date(),
+						hour = cur_date.getHours(),
+						minute = cur_date.getMinutes(),
+						second = cur_date.getSeconds();
+					
+					//绘制数字
+					cxt.beginPath();
+					cxt.font = "30px Verdana";
+					cxt.fillText(hour+":"+minute+":"+second,180,450);
+					cxt.closePath();
+					
+					//时针
+					rectAngle(180,6,-90+hour*30+minute*0.5,170,"black");
+					//分针
+					rectAngle(230,4,-90+minute*6,210,"red");
+					//秒针
+//					rectAngle(260,1,-90+second*6,230,"blue");
+					drawSecond (5,-90+second*6);
+					
+					//画中心园
+					cxt.beginPath();
+					cxt.strokeStyle = "orangered";
+					cxt.lineWidth = 2;
+					cxt.arc(250,250,5,0,2*Math.PI);
+					cxt.fillStyle = "yellow";
+					cxt.closePath();
+					
+					cxt.fill();
+					cxt.stroke();
+				
+				};
+				time();
+				setInterval(time,500);
+				
+			};
+		</script>
+	</body>
+</html>

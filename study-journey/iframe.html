@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+		<!-- Link Swiper's CSS -->
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+
+		<!-- Demo styles -->
+		<style>
+			html {
+				height: 100%;
+				width: 100%;
+			}
+			
+			body {
+				background: linear-gradient(#acF, #122535);
+				height: 100%;
+				width: 100%;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				max-width: 100%;
+				height: auto;
+			}
+			.swiper-container {
+				width: 95%;
+				height: 80%;
+				padding-top: 50px;
+				padding-bottom: 50px;
+			}
+			
+			.swiper-slide {
+				background-color: skyblue;
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.swiper-slide img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.swiper-slide a {
+				color: white;
+				font-size: 14px;
+				text-decoration: none;
+				display: block;
+				width: 100%;
+				background: radial-gradient(#acF, #cfbce8);
+				text-align: center;
+				text-decoration: underline;
+			}
+			
+			@media only screen and (min-width: 600px) {
+				.swiper-slide a {
+					font-size: 18px;
+				}
+			}
+			
+			.swiper-slide a:hover {
+				color: red;
+			}
+			
+			span#m-website {
+				display: block;
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				top: -20px;
+				display: none;
+			}
+			
+			span#m-website span.prompt {
+				color: white;
+				font-size: 14px;
+				display: block;
+				text-align: center;
+				background-color: #518eea;
+			}
+			
+			span#m-website span#shutdown {
+				color: white;
+				font-size: 20px;
+				position: absolute;
+				right: 0;
+				top: -2px;
+				cursor: pointer;
+			}
+			
+			span#m-website span#shutdown:hover {
+				color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a href="mooc/mooc.html" target="_blank">原生Js--慕课网首页(PC端打开)</a>
+					<img src="img/mooc.gif" />
+				</div>
+				<div class="swiper-slide">
+					<a href="damai/damai.html" target="_blank">数据处理和动态加载--大麦网首页(PC端打开)</a>
+					<img src="img/damai.gif" />
+				</div>
+				<div class="swiper-slide">
+					<a href="apple/apple.html" target="_blank">响应式页面--苹果官网首页</a>
+					<img src="img/apple.gif" />
+				</div>
+				<div class="swiper-slide">
+					<a href="zuwome/zuwome.html" id="to-zuwome-m" target="_blank">移动端站点--租我么M站</a>
+					<span id="m-website">
+<span class="prompt">请用手机浏览器扫二维码进入M站</span>
+					<span id="shutdown">x</span>
+					<img src="img/zuwome-M.png" />
+					</span>
+					<img src="img/zuwome.gif" />
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+
+		<!-- Swiper JS -->
+		<script src="js/zepto.dev.js"></script>
+		<script src="js/swiper-3.4.2.jquery.min.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				autoplay:3000,
+				speed:1000,
+				effect: 'coverflow',
+				grabCursor: true,
+				centeredSlides: true,
+				slidesPerView: 'auto',
+				coverflow: {
+					rotate: 50,
+					stretch: 0,
+					depth: 100,
+					modifier: 1,
+					slideShadows: true
+				}
+			});
+			var reg = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i;
+
+			function isMobile() {
+				if(navigator.userAgent.match(reg)) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			$("#to-zuwome-m").on("mousedown touchstart", function(e) {
+				if(!isMobile() || document.documentElement.clientWidth > 1100) {
+					e.preventDefault;
+					$("#m-website").toggle();
+				} else {
+					return;
+				}
+			});
+			$("#shutdown").on("click", function() {
+				$("#m-website").toggle();
+			});
+		</script>
+	</body>
+
+</html>
